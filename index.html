@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epüyen Salud — Acompañamiento en salud mental</title>
+<meta name="description" content="Acompañamiento en salud mental, orientación y bienestar. 100% online, en español, estés donde estés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Dancing+Script:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/isotipo.png">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F3ECE1;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#3F4A4F;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#F3A28F;color:#fff;}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes floaty2{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(-4deg)}}
+  /* subtle moving background gradients */
+  @keyframes drift1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-30px,28px) scale(1.12);}}
+  @keyframes drift2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(34px,-22px) scale(1.14);}}
+  @keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+  .amb-a{animation:drift1 22s ease-in-out infinite;}
+  .amb-b{animation:drift2 27s ease-in-out infinite;}
+  .closing{background-size:200% 200% !important;animation:gradShift 20s ease-in-out infinite;}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important;} }
+  [hidden]{display:none !important;}
+  img{max-width:100%;}
+  .nav{position:relative;z-index:40;}
+
+  /* burger + mobile menu */
+  .burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(96,121,133,.28);background:#fff;cursor:pointer;color:#607985;padding:0;}
+  .mobile-menu{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid rgba(96,121,133,.12);border-radius:16px;padding:10px;margin:6px 0 14px;box-shadow:0 20px 44px -22px rgba(96,121,133,.5);}
+  .mobile-menu .mm-link{padding:12px 14px;border-radius:10px;color:#5b6a70;font-weight:600;font-size:15.5px;text-decoration:none;cursor:pointer;}
+  .mobile-menu .mm-link:active{background:#F5EFE6;}
+  .mobile-menu .mm-cta{margin-top:6px;text-align:center;background:#E97878;color:#fff;font-weight:700;font-size:15.5px;padding:14px;border-radius:12px;text-decoration:none;box-shadow:0 4px 0 #cf6262;cursor:pointer;}
+  @media (min-width:721px){ .mobile-menu{display:none !important;} }
+
+  /* "Trabajá con nosotros" modal + form */
+  .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(45,55,60,.55);}
+  .modal-card{position:relative;background:#FAF6F0;border-radius:24px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:34px 32px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);}
+  .modal-x{position:absolute;top:16px;right:18px;width:36px;height:36px;border:0;background:#fff;border-radius:50%;font-size:22px;line-height:1;color:#607985;cursor:pointer;box-shadow:0 4px 12px -6px rgba(0,0,0,.3);}
+  .join-form{display:grid;gap:14px;margin-top:20px;}
+  .join-form label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600;color:#5b696f;}
+  .join-form input,.join-form select,.join-form textarea{border:1.5px solid rgba(96,121,133,.18);border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#fff;outline:none;}
+  .join-form input:focus,.join-form select:focus,.join-form textarea:focus{border-color:#E97878;}
+  .join-form textarea{resize:vertical;min-height:72px;}
+  .join-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .join-submit{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:15px;border:0;border-radius:13px;box-shadow:0 5px 0 #cf6262;cursor:pointer;margin-top:4px;font-family:inherit;}
+  @media (max-width:560px){ .join-row{grid-template-columns:1fr;} .modal-card{padding:26px 20px;} }
+  @media (max-width:860px){ .join-grid{grid-template-columns:1fr !important;} .join-aside{display:none !important;} }
+
+  /* ====================== RESPONSIVE ====================== */
+  /* Tablet / small laptop ( <= 980px ) */
+  @media (max-width:980px){
+    .wrap{padding:0 24px !important;}
+    .hero{grid-template-columns:1fr !important;gap:34px !important;padding:24px 0 20px !important;}
+    .hero .hero-visual{order:-1;max-width:460px;margin:0 auto;width:100%;}
+    .h1{font-size:clamp(38px,7vw,56px) !important;}
+    .closing-grid{grid-template-columns:1fr !important;gap:30px !important;}
+    .steps{grid-template-columns:1fr !important;}
+  }
+
+  /* Large phone / small tablet ( <= 720px ) */
+  @media (max-width:720px){
+    .nav{gap:12px;padding:20px 0 10px !important;}
+    .nav-links{display:none !important;}
+    .nav-cta{display:none !important;}
+    .burger{display:inline-flex;}
+    .cards{grid-template-columns:1fr 1fr !important;}
+    .soon{grid-template-columns:1fr !important;}
+    .closing{padding:38px 26px !important;}
+    .hero-visual{margin-top:22px;}
+    .deco-chat{top:2px !important;left:-6px !important;width:98px !important;}
+    .deco-check{bottom:-6px !important;right:-6px !important;width:112px !important;}
+  }
+
+  /* Phone ( <= 520px ) */
+  @media (max-width:520px){
+    .wrap{padding:0 16px !important;}
+    .cards{grid-template-columns:1fr !important;}
+    .stat-grid{grid-template-columns:1fr !important;gap:24px !important;}
+    .stat-grid > div{border:0 !important;}
+    .stat-banner{padding:34px 24px !important;}
+    .h1{font-size:clamp(32px,9vw,44px) !important;}
+    .foot{flex-direction:column;gap:24px !important;}
+    .closing-cards span{font-size:30px !important;white-space:normal !important;}
+    .hero-deco{width:104px !important;}
+  }
+</style>
+</head>
+<body>
+<main>
+<div data-screen-label="Home v2" data-lang-root="" style="position:relative;min-height:100vh;background:#FAF6F0;overflow:hidden;padding-bottom:4px;">
+
+  <!-- ambient decor -->
+  <div class="amb-a" aria-hidden="true" style="position:absolute;top:-160px;right:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,#F3A28F 0%,rgba(243,162,143,0) 68%);opacity:.4;pointer-events:none;"></div>
+  <div class="amb-b" aria-hidden="true" style="position:absolute;top:520px;left:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#BFE5E3 0%,rgba(191,229,227,0) 68%);opacity:.5;pointer-events:none;"></div>
+
+  <div class="wrap" style="position:relative;max-width:1180px;margin:0 auto;padding:0 34px;z-index:2;">
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" style="display:flex;align-items:center;justify-content:space-between;padding:26px 0 14px;">
+      <img src="assets/logo.png" alt="epuyen salud" style="height:48px;width:auto;display:block;">
+      <nav class="nav-links" style="display:flex;gap:30px;font-size:15px;color:#5b6a70;font-weight:500;">
+        <span><span data-i18n="nav1"></span></span><span><span data-i18n="nav2"></span></span><span><span data-i18n="nav3"></span></span><span><span data-i18n="nav4"></span></span>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div data-lang-root="" style="position:relative;">
+          <button onclick="toggleLang(event)" style="display:inline-flex;align-items:center;gap:7px;color:#607985;font-size:13.5px;font-weight:600;border:1.5px solid rgba(96,121,133,.28);border-radius:999px;padding:8px 13px;background:#fff;cursor:pointer;font-family:inherit;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"></path></svg>
+            <span id="langName">ES</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div id="langMenu" hidden>
+            <div style="position:absolute;top:48px;right:0;background:#fff;border:1px solid rgba(96,121,133,.14);border-radius:14px;padding:6px;box-shadow:0 20px 44px -22px rgba(96,121,133,.8);min-width:152px;z-index:60;">
+              <button onclick="pickLang('es')" style="display:flex;width:100%;align-items:center;gap:9px;padding:9px 12px;border:0;background:none;border-radius:9px;cursor:pointer;font-family:inherit;font-size:14px;color:#607985;font-weight:500;text-align:left;">🇦🇷 Español</button>
+              <button onclick="pickLang('en')" style="display:flex;width:100%;align-items:center;gap:9px;padding:9px 12px;border:0;background:none;border-radius:9px;cursor:pointer;font-family:inherit;font-size:14px;color:#607985;font-weight:500;text-align:left;">🇬🇧 English</button>
+              <button onclick="pickLang('pt')" style="display:flex;width:100%;align-items:center;gap:9px;padding:9px 12px;border:0;background:none;border-radius:9px;cursor:pointer;font-family:inherit;font-size:14px;color:#607985;font-weight:500;text-align:left;">🇧🇷 Português</button>
+            </div>
+          </div>
+        </div>
+        <a class="nav-cta" style="display:inline-flex;align-items:center;gap:8px;background:#E97878;color:#fff;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 16px 26px -12px rgba(233,120,120,.85);cursor:pointer;white-space:nowrap;"><span data-i18n="empezar"></span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <button class="burger" aria-label="Menú" onclick="toggleMenu(event)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a class="mm-link" data-i18n="nav1" onclick="closeMenu()"></a>
+      <a class="mm-link" data-i18n="nav2" onclick="closeMenu()"></a>
+      <a class="mm-link" data-i18n="nav3" onclick="closeMenu()"></a>
+      <a class="mm-link" data-i18n="nav4" onclick="closeMenu()"></a>
+      <a class="mm-cta" data-i18n="empezar" onclick="closeMenu()"></a>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:38px 0 30px;">
+      <!-- scattered dots -->
+      <span aria-hidden="true" style="position:absolute;top:6px;left:46%;width:13px;height:13px;border-radius:50%;background:#BFE5E3;"></span>
+      <span aria-hidden="true" style="position:absolute;top:130px;left:40%;width:9px;height:9px;border-radius:50%;background:#F3A28F;"></span>
+      <span aria-hidden="true" style="position:absolute;bottom:34px;left:30%;width:11px;height:11px;border-radius:50%;background:#B78BC6;opacity:.7;"></span>
+
+      <div style="position:relative;">
+        <div style="display:flex;align-items:center;gap:11px;flex-wrap:wrap;">
+          <span style="display:inline-flex;align-items:center;gap:8px;color:#E97878;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#E97878;"></span><span data-i18n="eyebrow"></span>
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#EAF6F4;color:#4f928d;font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 12px;white-space:nowrap;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="13" height="11" rx="2.5"></rect><path d="M15.5 10l5-2.5v9l-5-2.5z"></path></svg><span data-i18n="vbadge"></span>
+          </span>
+        </div>
+
+        <h1 class="h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:60px;line-height:1.04;color:#4a5b62;letter-spacing:-.015em;margin:22px 0 0;"><span data-i18n="h1a"></span><span style="font-family:'Dancing Script',cursive;font-weight:600;color:#E97878;font-size:1.18em;text-decoration:underline wavy #F3A28F;text-decoration-thickness:2.5px;text-underline-offset:7px;padding:0 .08em;"><span data-i18n="h1em"></span></span><span data-i18n="h1b"></span></h1>
+
+        <p style="font-size:18.5px;line-height:1.62;color:#5b696f;max-width:30em;margin:24px 0 0;"><span data-i18n="sub"></span></p>
+
+        <div style="display:flex;gap:15px;margin-top:34px;flex-wrap:wrap;align-items:center;">
+          <a style="display:inline-flex;align-items:center;gap:10px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:16px 28px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 18px 30px -14px rgba(233,120,120,.9);cursor:pointer;"><span data-i18n="cta1"></span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <a style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#607985;font-weight:700;font-size:16px;padding:15px 24px;border-radius:999px;text-decoration:none;border:1.5px solid rgba(96,121,133,.22);cursor:pointer;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l1.3-3.5A7.5 7.5 0 1 1 8.5 18.7z"></path></svg><span data-i18n="cta2"></span></a>
+        </div>
+      </div>
+
+      <!-- hero visual -->
+      <div class="hero-visual" style="position:relative;">
+        <div aria-hidden="true" style="position:absolute;top:-22px;right:-14px;width:88%;height:96%;border-radius:46% 54% 58% 42%/52% 44% 56% 48%;background:#CDEAE6;"></div>
+        <div aria-hidden="true" style="position:absolute;bottom:-26px;left:-26px;width:46%;height:46%;border-radius:50% 50% 48% 52%/50%;background:#EFE0D2;"></div>
+        <div style="position:relative;width:100%;height:466px;border-radius:46% 54% 56% 44%/52% 46% 54% 48%;overflow:hidden;box-shadow:0 34px 60px -34px rgba(96,121,133,.6);background:radial-gradient(120% 120% at 50% 28%,#FBF6EF 0%,#E9F1EA 100%);display:flex;align-items:flex-end;justify-content:center;">
+          <img id="v2hero" src="assets/hero-person.png" alt="Profesional de Epüyen Salud" style="display:block;width:90%;height:auto;max-height:99%;object-fit:contain;">
+        </div>
+        <!-- isotipo badge -->
+        <div style="position:absolute;top:10px;right:16px;width:56px;height:56px;border-radius:50%;background:#FAF6F0;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -12px rgba(96,121,133,.7);animation:floaty 6s ease-in-out infinite;z-index:3;">
+          <img src="assets/isotipo.png" alt="" style="height:36px;width:auto;">
+        </div>
+        <!-- floating illustrations -->
+        <img class="hero-deco deco-chat" src="assets/deco-chat.png" alt="" aria-hidden="true" style="position:absolute;top:-18px;left:-30px;width:132px;height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty2 7s ease-in-out infinite;z-index:3;">
+        <img class="hero-deco deco-check" src="assets/deco-check.png" alt="" aria-hidden="true" style="position:absolute;bottom:-14px;right:-26px;width:152px;height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty 6.5s ease-in-out infinite;z-index:3;">
+        <!-- script tag -->
+        <span style="position:absolute;bottom:38px;left:-16px;font-family:'Dancing Script',cursive;font-weight:600;font-size:23px;color:#b5552f;background:#FAD9CF;padding:4px 15px 6px;border-radius:11px 9px 8px 12px;transform:rotate(-4deg);box-shadow:0 10px 22px -14px rgba(96,121,133,.7);z-index:3;"><span data-i18n="heroTag2"></span></span>
+        <!-- sparkle -->
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="#B78BC6" style="position:absolute;top:40%;left:-6px;z-index:3;"><path d="M12 0c.6 6 .6 6 12 12-11.4 6-11.4 6-12 12-.6-6-.6-6-12-12 11.4-6 11.4-6 12-12z"></path></svg>
+      </div>
+    </section>
+
+    <!-- ============ STAT BANNER ============ -->
+    <section class="stat-banner" style="position:relative;margin:30px 0 12px;border-radius:30px;overflow:hidden;background:#7E9B72;padding:42px 46px;box-shadow:0 30px 60px -36px rgba(126,155,114,.9);">
+      <svg aria-hidden="true" viewBox="0 0 1200 220" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.5;"><path d="M-20,150 C140,80 260,210 430,150 C600,90 700,210 870,150 C1010,100 1120,180 1240,140" fill="none" stroke="#EDF3E9" stroke-width="20" stroke-linecap="round" opacity=".45"></path></svg>
+      <div style="position:relative;text-align:center;max-width:680px;margin:0 auto 26px;">
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;line-height:1.18;color:#fff;margin:0;"><span data-i18n="bnHead"></span></h2>
+      </div>
+      <div class="stat-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;">
+        <div style="text-align:center;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn1n"></span></span></div>
+          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn1l"></span></div>
+        </div>
+        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.25);">
+          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn2n"></span></span></div>
+          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn2l"></span></div>
+        </div>
+        <div style="text-align:center;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn3n"></span></span></div>
+          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn3l"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ¿QUÉ ESTÁS BUSCANDO? ============ -->
+    <section style="position:relative;padding:64px 0 8px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto;">
+        <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:27px;color:#E97878;"><span data-i18n="qKicker"></span></span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;color:#4a5b62;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="qTitle"></span></h2>
+        <p style="font-size:17px;line-height:1.6;color:#5b696f;margin:12px 0 0;"><span data-i18n="qSub"></span></p>
+      </div>
+      <div class="cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;">
+
+        <!-- card 1 -->
+        <div style="position:relative;background:#FAD9CF;border-radius:24px;padding:26px;min-height:188px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#E97878;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#5a3b33;margin:16px 0 0;"><span data-i18n="s1t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:#8a5e52;margin:7px 0 0;max-width:22ch;"><span data-i18n="s1d"></span></p>
+          <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#E97878;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+        </div>
+
+        <!-- card 2 -->
+        <div style="position:relative;background:#DDE8D5;border-radius:24px;padding:26px;min-height:188px;">
+          <span style="position:absolute;top:-10px;right:18px;font-family:'Dancing Script',cursive;font-weight:600;font-size:19px;color:#5e7350;background:#fff;padding:2px 12px 4px;border-radius:9px;transform:rotate(4deg);box-shadow:0 8px 18px -12px rgba(96,121,133,.7);"><span data-i18n="qtag1"></span></span>
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#7E9B72;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9.5" r="3"></circle><circle cx="15" cy="9.5" r="3"></circle><path d="M4 19c0-2.8 2.2-5 5-5M20 19c0-2.8-2.2-5-5-5"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#3f5236;margin:16px 0 0;"><span data-i18n="s2t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:#5e7350;margin:7px 0 0;max-width:22ch;"><span data-i18n="s2d"></span></p>
+          <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#7E9B72;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+        </div>
+
+        <!-- card 3 -->
+        <div style="position:relative;background:#CFEAE7;border-radius:24px;padding:26px;min-height:188px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#4f928d;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="m15 9-2 5-4 1 2-5z"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#2f5a55;margin:16px 0 0;"><span data-i18n="s3t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:#4f7c77;margin:7px 0 0;max-width:22ch;"><span data-i18n="s3d"></span></p>
+          <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#4f928d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+        </div>
+
+        <!-- card 4 -->
+        <div style="position:relative;background:#F6E3D4;border-radius:24px;padding:26px;min-height:188px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#D08A5E;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.5-4.2-6.5-9A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 6.5 2c0 4.8-6.5 10-6.5 10z"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#7a5331;margin:16px 0 0;"><span data-i18n="s4t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:#9a724b;margin:7px 0 0;max-width:22ch;"><span data-i18n="s4d"></span></p>
+          <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#D08A5E;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+        </div>
+
+        <!-- card 5 -->
+        <div style="position:relative;background:#E7DCF0;border-radius:24px;padding:26px;min-height:188px;">
+          <span style="position:absolute;top:-10px;right:18px;font-family:'Dancing Script',cursive;font-weight:600;font-size:19px;color:#7c5a91;background:#fff;padding:2px 12px 4px;border-radius:9px;transform:rotate(-4deg);box-shadow:0 8px 18px -12px rgba(96,121,133,.7);"><span data-i18n="qtag3"></span></span>
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#9b78b0;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4f3a5e;margin:16px 0 0;"><span data-i18n="s5t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:#7c5a91;margin:7px 0 0;max-width:22ch;"><span data-i18n="s5d"></span></p>
+          <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#9b78b0;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+        </div>
+
+        <!-- card 6 highlighted -->
+        <div style="position:relative;background:#607985;border-radius:24px;padding:26px;min-height:188px;overflow:hidden;">
+          <div aria-hidden="true" style="position:absolute;top:-34px;right:-34px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07);"></div>
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="rgba(255,255,255,.5)" style="position:absolute;top:24px;right:24px;"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg>
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:rgba(255,255,255,.16);color:#fff;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"></path><path d="M12 14c0-3 2-5 5-5 0 3-2 5-5 5z"></path><path d="M12 16c0-2.5-2-4-4.5-4 0 2.5 2 4 4.5 4z"></path></svg></span>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#fff;margin:16px 0 0;"><span data-i18n="s6t"></span></h3>
+          <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,.82);margin:7px 0 0;max-width:24ch;"><span data-i18n="s6d"></span></p>
+          <span style="display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:#fff;font-size:13.5px;font-weight:700;"><span data-i18n="s6cta"></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PSIQUIATRÍA Y NUTRICIÓN ============ -->
+    <section style="position:relative;padding:60px 0 6px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto;">
+        <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:27px;color:#9b78b0;"><span data-i18n="pxKicker"></span></span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;color:#4a5b62;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="pxTitle"></span></h2>
+        <p style="font-size:17px;line-height:1.6;color:#5b696f;margin:12px 0 0;"><span data-i18n="pxSub"></span></p>
+      </div>
+      <div class="soon" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;">
+        <!-- psiquiatría -->
+        <div style="position:relative;background:#fff;border:1px solid rgba(155,120,176,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
+          <span style="flex-shrink:0;display:inline-flex;width:54px;height:54px;border-radius:16px;background:#EFE6F3;color:#9b78b0;align-items:center;justify-content:center;"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6a4 4 0 0 0 6 0V3"></path><path d="M12 13v3a4 4 0 0 1-8 0v-1"></path><circle cx="18" cy="16" r="3"></circle></svg></span>
+          <div>
+            <span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b78b0;background:#EFE6F3;border-radius:999px;padding:4px 11px;"><span data-i18n="pxBadge"></span></span>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:11px 0 0;"><span data-i18n="px1t"></span></h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:6px 0 0;"><span data-i18n="px1d"></span></p>
+          </div>
+        </div>
+        <!-- nutrición -->
+        <div style="position:relative;background:#fff;border:1px solid rgba(126,155,114,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
+          <span style="flex-shrink:0;display:inline-flex;width:54px;height:54px;border-radius:16px;background:#E8F0E3;color:#7E9B72;align-items:center;justify-content:center;"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c5-3 8-7 8-11a4 4 0 0 0-8-1 4 4 0 0 0-8 1c0 4 3 8 8 11z"></path><path d="M12 9c1.5 1 2 2.5 2 4"></path></svg></span>
+          <div>
+            <span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7E9B72;background:#E8F0E3;border-radius:999px;padding:4px 11px;"><span data-i18n="pxBadge"></span></span>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:11px 0 0;"><span data-i18n="px2t"></span></h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:6px 0 0;"><span data-i18n="px2d"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO FUNCIONA ============ -->
+    <section style="position:relative;padding:66px 0 6px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto;">
+        <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:27px;color:#7E9B72;"><span data-i18n="hKicker"></span></span>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;color:#4a5b62;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="hTitle"></span></h2>
+        <p style="font-size:17px;line-height:1.6;color:#5b696f;margin:12px 0 0;"><span data-i18n="hSub"></span></p>
+      </div>
+      <div class="steps" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;">
+        <div style="position:relative;background:#fff;border-radius:24px;padding:30px 26px;box-shadow:0 24px 48px -34px rgba(96,121,133,.7);">
+          <div style="display:flex;align-items:center;gap:13px;"><span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:40px;color:#E97878;line-height:1;">1</span><span style="flex:1;height:2px;border-top:2px dashed #F1C8BC;"></span></div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:14px 0 0;"><span data-i18n="st1t"></span></h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#7c878c;margin:8px 0 0;"><span data-i18n="st1d"></span></p>
+        </div>
+        <div style="position:relative;background:#fff;border-radius:24px;padding:30px 26px;box-shadow:0 24px 48px -34px rgba(96,121,133,.7);">
+          <div style="display:flex;align-items:center;gap:13px;"><span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:40px;color:#7E9B72;line-height:1;">2</span><span style="flex:1;height:2px;border-top:2px dashed #C9DBC0;"></span></div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:14px 0 0;"><span data-i18n="st2t"></span></h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#7c878c;margin:8px 0 0;"><span data-i18n="st2d"></span></p>
+        </div>
+        <div style="position:relative;background:#4a5b62;border-radius:24px;padding:30px 26px;box-shadow:0 24px 48px -30px rgba(96,121,133,.85);">
+          <div style="display:flex;align-items:center;gap:13px;"><span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:40px;color:#BFE5E3;line-height:1;">3</span><span style="flex:1;height:2px;border-top:2px dashed rgba(191,229,227,.5);"></span></div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#fff;margin:14px 0 0;"><span data-i18n="st3t"></span></h3>
+          <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.78);margin:8px 0 0;"><span data-i18n="st3d"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST / EQUIPO STRIP ============ -->
+    <section style="position:relative;margin:60px 0 0;">
+      <div style="position:relative;background:#fff;border:1px solid rgba(96,121,133,.1);border-radius:26px;padding:26px 32px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;box-shadow:0 26px 52px -38px rgba(96,121,133,.7);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;">
+            <span style="width:46px;height:46px;border-radius:50%;background:#F3A28F;border:3px solid #fff;"></span>
+            <span style="width:46px;height:46px;border-radius:50%;background:#BFE5E3;border:3px solid #fff;margin-left:-16px;"></span>
+            <span style="width:46px;height:46px;border-radius:50%;background:#B78BC6;border:3px solid #fff;margin-left:-16px;"></span>
+            <span style="width:46px;height:46px;border-radius:50%;background:#7E9B72;border:3px solid #fff;margin-left:-16px;"></span>
+            <span style="width:46px;height:46px;border-radius:50%;background:#607985;border:3px solid #fff;margin-left:-16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;">+34</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;color:#4a5b62;margin:0;"><span data-i18n="trTitle"></span></h3>
+          <p style="font-size:14.5px;color:#7c878c;margin:5px 0 0;line-height:1.5;"><span data-i18n="trSub"></span></p>
+        </div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;">
+          <span style="font-size:13px;font-weight:600;color:#E97878;background:#FBEAE3;border-radius:999px;padding:8px 15px;"><span data-i18n="trb1"></span></span>
+          <span style="font-size:13px;font-weight:600;color:#7E9B72;background:#E8F0E3;border-radius:999px;padding:8px 15px;"><span data-i18n="trb2"></span></span>
+          <span style="font-size:13px;font-weight:600;color:#9b78b0;background:#EFE6F3;border-radius:999px;padding:8px 15px;"><span data-i18n="trb3"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING CTA (marker) ============ -->
+    <section class="closing" style="position:relative;margin:62px 0 56px;border-radius:30px;overflow:hidden;background:linear-gradient(125deg,#EAF6F4 0%,#FAF6F0 52%,#F6E3D4 100%);padding:52px 48px;">
+      <img src="assets/isotipo.png" alt="" aria-hidden="true" style="position:absolute;right:34px;bottom:-14px;height:190px;width:auto;opacity:.14;">
+      <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="#F3A28F" style="position:absolute;top:30px;right:42%;"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg>
+      <div class="closing-grid" style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;">
+        <div>
+          <div class="closing-cards" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;">
+            <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:42px;line-height:1.04;white-space:nowrap;display:inline-block;color:#5a3b33;background:#FAD9CF;padding:5px 16px 7px;border-radius:12px 16px 13px 11px;transform:rotate(-2deg);"><span data-i18n="clHi1"></span></span>
+            <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:42px;line-height:1.04;white-space:nowrap;display:inline-block;color:#2f5a55;background:#CFEAE7;padding:5px 16px 7px;border-radius:14px 11px 12px 16px;transform:rotate(1.5deg);margin-left:18px;"><span data-i18n="clHi2"></span></span>
+            <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:42px;line-height:1.04;white-space:nowrap;display:inline-block;color:#4f3a5e;background:#E7DCF0;padding:5px 16px 7px;border-radius:11px 15px 12px 13px;transform:rotate(-1.5deg);margin-left:6px;"><span data-i18n="clHi3"></span></span>
+          </div>
+          <p style="font-size:16.5px;line-height:1.6;color:#5b696f;margin:24px 0 0;max-width:34ch;"><span data-i18n="clSub"></span></p>
+        </div>
+        <div style="background:#fff;border-radius:22px;padding:24px;box-shadow:0 30px 56px -36px rgba(96,121,133,.8);">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <input placeholder="" data-i18n-ph="clName" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
+            <input placeholder="" data-i18n-ph="clPhone" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
+            <a style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:15px;border-radius:13px;text-decoration:none;box-shadow:0 5px 0 #cf6262;cursor:pointer;margin-top:2px;"><span data-i18n="clBtn"></span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center;color:#8a949a;font-size:12.5px;margin-top:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="clNote"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRABAJÁ CON NOSOTROS ============ -->
+    <section style="position:relative;margin:64px 0 8px;">
+      <div style="position:relative;background:#4a5b62;border-radius:30px;overflow:hidden;padding:48px 46px;box-shadow:0 30px 60px -38px rgba(74,91,98,.9);">
+        <div aria-hidden="true" style="position:absolute;top:-50px;right:-40px;width:230px;height:230px;border-radius:50%;background:rgba(191,229,227,.09);"></div>
+        <div aria-hidden="true" style="position:absolute;bottom:-60px;left:-30px;width:180px;height:180px;border-radius:50%;background:rgba(243,162,143,.10);"></div>
+        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="rgba(191,229,227,.5)" style="position:absolute;top:30px;right:36px;"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg>
+        <div class="join-grid" style="position:relative;display:grid;grid-template-columns:1.18fr .82fr;gap:44px;align-items:center;">
+          <div>
+            <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:26px;color:#BFE5E3;"><span data-i18n="jwKicker"></span></span>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;color:#fff;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="jwTitle"></span></h2>
+            <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.82);margin:16px 0 0;max-width:56ch;"><span data-i18n="jwText"></span></p>
+            <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px;">
+              <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal1"></span></span>
+              <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal2"></span></span>
+              <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal3"></span></span>
+              <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal4"></span></span>
+            </div>
+            <a onclick="openJoin()" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#4a5b62;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 rgba(0,0,0,.18);cursor:pointer;margin-top:26px;"><span data-i18n="jwCta"></span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          </div>
+          <div class="join-aside" aria-hidden="true" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;">
+            <div style="display:flex;">
+              <span style="width:54px;height:54px;border-radius:50%;background:#F3A28F;border:3px solid #4a5b62;"></span>
+              <span style="width:54px;height:54px;border-radius:50%;background:#BFE5E3;border:3px solid #4a5b62;margin-left:-18px;"></span>
+              <span style="width:54px;height:54px;border-radius:50%;background:#B78BC6;border:3px solid #4a5b62;margin-left:-18px;"></span>
+              <span style="width:54px;height:54px;border-radius:50%;background:#7E9B72;border:3px solid #4a5b62;margin-left:-18px;"></span>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px 22px;text-align:center;">
+              <div style="font-family:'Newsreader',serif;font-weight:600;font-size:34px;color:#fff;line-height:1;">+34</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:6px;"><span data-i18n="trb1"></span> · <span data-i18n="trb2"></span> · <span data-i18n="trb3"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="foot" style="border-top:1px solid rgba(96,121,133,.12);padding:40px 0 56px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;">
+      <div style="max-width:290px;">
+        <img src="assets/logo.png" alt="epuyen salud" style="height:44px;width:auto;display:block;">
+        <p style="font-size:13.5px;line-height:1.6;color:#8a949a;margin:14px 0 0;"><span data-i18n="ftTagline"></span></p>
+      </div>
+      <div style="display:flex;gap:58px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9c9183;font-weight:700;"><span data-i18n="ftMap"></span></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:14px;color:#607985;">
+            <span><span data-i18n="nav1"></span></span><span><span data-i18n="nav2"></span></span><span><span data-i18n="nav3"></span></span><span><span data-i18n="nav4"></span></span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9c9183;font-weight:700;"><span data-i18n="ftContact"></span></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:14px;color:#607985;">
+            <span>WhatsApp</span><span>hola@epuyensalud.com</span><span>Instagram</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+
+<!-- modal: postulación profesional -->
+<div id="joinModal" class="modal" hidden>
+  <div class="modal-backdrop" onclick="closeJoin()"></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Trabajá con nosotros">
+    <button class="modal-x" onclick="closeJoin()" aria-label="Cerrar">&times;</button>
+    <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;color:#4a5b62;margin:0;padding-right:30px;"><span data-i18n="jwFormTitle"></span></h3>
+    <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:8px 0 0;"><span data-i18n="jwFormSub"></span></p>
+
+    <form id="joinForm" class="join-form" onsubmit="return submitJoin(event)">
+      <label><span data-i18n="fName"></span>
+        <input name="Nombre" required>
+      </label>
+      <div class="join-row">
+        <label><span data-i18n="fProf"></span>
+          <select name="Profesión" required>
+            <option value="" data-i18n="fChoose"></option>
+            <option data-i18n="optPsico"></option>
+            <option data-i18n="optPareja"></option>
+            <option data-i18n="optVocac"></option>
+            <option data-i18n="optBien"></option>
+            <option data-i18n="optOtro"></option>
+          </select>
+        </label>
+        <label><span data-i18n="fLoc"></span>
+          <input name="País/Ciudad" required>
+        </label>
+      </div>
+      <div class="join-row">
+        <label><span data-i18n="fLic"></span>
+          <input name="Matrícula/Formación">
+        </label>
+        <label><span data-i18n="fMod"></span>
+          <select name="Modalidad">
+            <option value="" data-i18n="fChoose"></option>
+            <option data-i18n="modOnline"></option>
+            <option data-i18n="modPres"></option>
+            <option data-i18n="modAmbas"></option>
+          </select>
+        </label>
+      </div>
+      <label><span data-i18n="fPub"></span>
+        <input name="Público">
+      </label>
+      <label><span data-i18n="fExp"></span>
+        <textarea name="Experiencia"></textarea>
+      </label>
+      <div class="join-row">
+        <label><span data-i18n="fContact"></span>
+          <input name="WhatsApp/Email" required>
+        </label>
+        <label><span data-i18n="fLink"></span>
+          <input name="Link/Redes">
+        </label>
+      </div>
+      <label><span data-i18n="fMsg"></span>
+        <textarea name="Mensaje"></textarea>
+      </label>
+      <button type="submit" class="join-submit"><span data-i18n="fSubmit"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </button>
+    </form>
+
+    <div id="joinThanks" hidden style="text-align:center;padding:30px 10px;">
+      <div style="width:60px;height:60px;border-radius:50%;background:#E8F0E3;display:flex;align-items:center;justify-content:center;margin:0 auto;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg></div>
+      <p style="font-size:16px;line-height:1.55;color:#4a5b62;margin:18px auto 0;max-width:34ch;"><span data-i18n="fThanks"></span></p>
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+const I18N = {
+      es:{
+        nav1:'Cómo acompañamos', nav2:'Cómo funciona', nav3:'Equipo', nav4:'Preguntas',
+        empezar:'Empezar orientación',
+        eyebrow:'Salud mental · Orientación · Bienestar', vbadge:'100% online',
+        h1a:'Encontrá el acompañamiento ', h1em:'adecuado', h1b:', estés donde estés.',
+        sub:'Te ayudamos a ordenar lo que necesitás y a conectarte con profesionales de salud mental, orientación y bienestar.',
+        cta1:'Empezar orientación', cta2:'Hablar por WhatsApp',
+        heroTag1:'en tu idioma', heroTag2:'por videollamada',
+        bnHead:'Más de 34 profesionales online, listos para acompañarte',
+        bn1n:'+34', bn1l:'profesionales verificados',
+        bn2n:'100%', bn2l:'online · en español',
+        bn3n:'24–48 h', bn3l:'para tu primera respuesta',
+        qKicker:'elegí por dónde empezar', qTitle:'¿Qué estás buscando?',
+        qSub:'Y si no estás seguro, te ayudamos a ordenarlo con vos.',
+        s1t:'Psicoterapia individual', s1d:'Un espacio propio para entenderte y estar mejor.',
+        s2t:'Terapia de pareja', s2d:'Acompañamiento para reconectar y resolver juntos.',
+        s3t:'Test vocacional', s3d:'Claridad para decidir tu próximo paso de estudio o carrera.',
+        s4t:'Orientación emocional', s4d:'Una primera escucha para ordenar lo que sentís.',
+        s5t:'Vivo en el exterior', s5d:'Atención en español, estés donde estés, sin perder cercanía.',
+        s6t:'No sé qué necesito', s6d:'Contanos y te ayudamos a encontrar el camino.',
+        s6cta:'Empezar la orientación guiada',
+        qtag1:'a tu ritmo', qtag3:'en tu idioma',
+        hKicker:'simple y humano', hTitle:'Cómo funciona',
+        hSub:'Tres pasos, con criterio humano en cada uno.',
+        st1t:'Contanos qué buscás', st1d:'Completás un formulario breve. Sin tecnicismos, a tu ritmo.',
+        st2t:'Revisamos tu caso', st2d:'El equipo de Epuyen lo lee con cuidado y criterio humano.',
+        st3t:'Te conectamos', st3d:'Te recomendamos el profesional o servicio adecuado para vos.',
+        trTitle:'Personas reales, profesionales verificados', trSub:'Un equipo que revisa tu caso con criterio humano antes de derivarte.',
+        trb1:'Psicología', trb2:'Orientación', trb3:'Bienestar',
+        clHi1:'Empezá hoy', clHi2:'sin saber aún', clHi3:'qué necesitás',
+        clSub:'Dejanos tus datos y te escribimos para acompañarte en el primer paso. Sin compromiso.',
+        clName:'Tu nombre', clPhone:'WhatsApp', clBtn:'Empezar orientación', clNote:'Te respondemos en 24–48 h',
+        ftTagline:'Acompañamiento en salud mental, orientación y bienestar. 100% online, en español, estés donde estés.',
+        ftMap:'Mapa', ftContact:'Contacto',
+        pxKicker:'también te acompañamos', pxTitle:'Psiquiatría y nutrición, también online', pxSub:'Con profesionales verificados, conectados a tu proceso de bienestar.',
+        pxBadge:'Disponible',
+        px1t:'Psiquiatría online', px1d:'Evaluación y seguimiento con profesionales médicos matriculados.',
+        px2t:'Nutrición', px2d:'Acompañamiento nutricional integral, conectado a tu bienestar.',
+        jwKicker:'sumate al equipo', jwTitle:'Trabajá con nosotros',
+        jwText:'Estamos construyendo una red de profesionales orientada a acompañar a personas hispanohablantes en distintas etapas de su vida, estén donde estén. Si sos psicólogo/a, terapeuta de pareja, orientador/a vocacional o profesional del bienestar, podés sumarte a Epüyen Salud para formar parte de un espacio que conecta personas con acompañamiento humano, claro y responsable.',
+        jwCta:'Quiero sumarme como profesional',
+        jwVal1:'Comunidad', jwVal2:'Ética', jwVal3:'Cuidado', jwVal4:'Crecimiento',
+        jwFormTitle:'Sumate como profesional', jwFormSub:'Contanos sobre vos. Revisamos cada postulación con cuidado.',
+        fName:'Nombre y apellido', fProf:'Profesión / especialidad', fLoc:'País / ciudad',
+        fLic:'Matrícula o formación', fMod:'Modalidad de atención', fPub:'Público con el que trabajás',
+        fExp:'Experiencia breve', fContact:'WhatsApp / email', fLink:'Link profesional / Instagram / LinkedIn',
+        fMsg:'Mensaje breve', fSubmit:'Enviar postulación', fThanks:'¡Gracias! Recibimos tu postulación y te contactaremos pronto.',
+        fChoose:'Elegí una opción', optPsico:'Psicología', optPareja:'Terapia de pareja', optVocac:'Orientación vocacional', optBien:'Bienestar', optOtro:'Otro',
+        modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas'
+      },
+      en:{
+        nav1:'How we help', nav2:'How it works', nav3:'Our team', nav4:'FAQ',
+        empezar:'Start orientation',
+        eyebrow:'Mental health · Guidance · Wellbeing', vbadge:'100% online',
+        h1a:'Find the ', h1em:'right', h1b:' support, wherever you are.',
+        sub:'We help you make sense of what you need and connect you with mental health, guidance and wellbeing professionals.',
+        cta1:'Start orientation', cta2:'Chat on WhatsApp',
+        heroTag1:'in your language', heroTag2:'by video call',
+        bnHead:'Over 34 online professionals, ready to support you',
+        bn1n:'+34', bn1l:'verified professionals',
+        bn2n:'100%', bn2l:'online · in Spanish',
+        bn3n:'24–48 h', bn3l:'to your first reply',
+        qKicker:'choose where to start', qTitle:'What are you looking for?',
+        qSub:'And if you are not sure, we will help you sort it out with you.',
+        s1t:'Individual therapy', s1d:'A space of your own to understand yourself and feel better.',
+        s2t:'Couples therapy', s2d:'Support to reconnect and work things out together.',
+        s3t:'Vocational test', s3d:'Clarity to decide your next step in study or career.',
+        s4t:'Emotional guidance', s4d:'A first listening to make sense of how you feel.',
+        s5t:'Living abroad', s5d:'Care in Spanish, wherever you are, without losing closeness.',
+        s6t:'I am not sure yet', s6d:'Tell us and we will help you find the way.',
+        s6cta:'Start the guided orientation',
+        qtag1:'at your pace', qtag3:'in your language',
+        hKicker:'simple and human', hTitle:'How it works',
+        hSub:'Three steps, with human judgment at each one.',
+        st1t:'Tell us what you need', st1d:'Fill in a short form. No jargon, at your own pace.',
+        st2t:'We review your case', st2d:'The Epuyen team reads it with care and human judgment.',
+        st3t:'We connect you', st3d:'We recommend the right professional or service for you.',
+        trTitle:'Real people, verified professionals', trSub:'A team that reviews your case with human judgment before any referral.',
+        trb1:'Psychology', trb2:'Guidance', trb3:'Wellbeing',
+        clHi1:'Start today', clHi2:'even unsure', clHi3:'of what you need',
+        clSub:'Leave your details and we will reach out to guide your first step. No commitment.',
+        clName:'Your name', clPhone:'WhatsApp', clBtn:'Start orientation', clNote:'We reply within 24–48 h',
+        ftTagline:'Support in mental health, guidance and wellbeing. 100% online, in Spanish, wherever you are.',
+        ftMap:'Sitemap', ftContact:'Contact',
+        pxKicker:'we also support you', pxTitle:'Psychiatry and nutrition, also online', pxSub:'With verified professionals, connected to your wellbeing journey.',
+        pxBadge:'Available',
+        px1t:'Online psychiatry', px1d:'Assessment and follow-up with licensed medical professionals.',
+        px2t:'Nutrition', px2d:'Comprehensive nutritional support, connected to your wellbeing.',
+        jwKicker:'join the team', jwTitle:'Work with us',
+        jwText:'We are building a network of professionals focused on supporting Spanish-speaking people at different stages of their lives, wherever they are. If you are a psychologist, couples therapist, vocational counselor or wellbeing professional, you can join Epüyen Salud and be part of a space that connects people with human, clear and responsible care.',
+        jwCta:'I want to join as a professional',
+        jwVal1:'Community', jwVal2:'Ethics', jwVal3:'Care', jwVal4:'Growth',
+        jwFormTitle:'Join as a professional', jwFormSub:'Tell us about you. We review every application with care.',
+        fName:'Full name', fProf:'Profession / specialty', fLoc:'Country / city',
+        fLic:'License or training', fMod:'Type of care', fPub:'Who you work with',
+        fExp:'Brief experience', fContact:'WhatsApp / email', fLink:'Professional link / Instagram / LinkedIn',
+        fMsg:'Short message', fSubmit:'Send application', fThanks:'Thank you! We received your application and will be in touch soon.',
+        fChoose:'Choose an option', optPsico:'Psychology', optPareja:'Couples therapy', optVocac:'Vocational guidance', optBien:'Wellbeing', optOtro:'Other',
+        modOnline:'Online', modPres:'In person', modAmbas:'Both'
+      },
+      pt:{
+        nav1:'Como acompanhamos', nav2:'Como funciona', nav3:'Equipe', nav4:'Perguntas',
+        empezar:'Começar orientação',
+        eyebrow:'Saúde mental · Orientação · Bem-estar', vbadge:'100% online',
+        h1a:'Encontre o acompanhamento ', h1em:'certo', h1b:', onde quer que você esteja.',
+        sub:'Ajudamos você a organizar o que precisa e a se conectar com profissionais de saúde mental, orientação e bem-estar.',
+        cta1:'Começar orientação', cta2:'Falar no WhatsApp',
+        heroTag1:'no seu idioma', heroTag2:'por videochamada',
+        bnHead:'Mais de 34 profissionais online, prontos para acompanhar você',
+        bn1n:'+34', bn1l:'profissionais verificados',
+        bn2n:'100%', bn2l:'online · em espanhol',
+        bn3n:'24–48 h', bn3l:'para a primeira resposta',
+        qKicker:'escolha por onde começar', qTitle:'O que você está buscando?',
+        qSub:'E se não tiver certeza, ajudamos você a organizar junto.',
+        s1t:'Psicoterapia individual', s1d:'Um espaço só seu para se entender e ficar melhor.',
+        s2t:'Terapia de casal', s2d:'Acompanhamento para reconectar e resolver juntos.',
+        s3t:'Teste vocacional', s3d:'Clareza para decidir o próximo passo de estudo ou carreira.',
+        s4t:'Orientação emocional', s4d:'Uma primeira escuta para organizar o que você sente.',
+        s5t:'Moro no exterior', s5d:'Atendimento em espanhol, onde estiver, com proximidade.',
+        s6t:'Não sei do que preciso', s6d:'Conte para a gente e ajudamos a achar o caminho.',
+        s6cta:'Começar a orientação guiada',
+        qtag1:'no seu ritmo', qtag3:'no seu idioma',
+        hKicker:'simples e humano', hTitle:'Como funciona',
+        hSub:'Três passos, com critério humano em cada um.',
+        st1t:'Conte o que busca', st1d:'Preenche um formulário breve. Sem tecnicismos, no seu ritmo.',
+        st2t:'Revisamos seu caso', st2d:'A equipe da Epuyen lê com cuidado e critério humano.',
+        st3t:'Conectamos você', st3d:'Recomendamos o profissional ou serviço certo para você.',
+        trTitle:'Pessoas reais, profissionais verificados', trSub:'Uma equipe que revisa seu caso com critério humano antes de indicar.',
+        trb1:'Psicologia', trb2:'Orientação', trb3:'Bem-estar',
+        clHi1:'Comece hoje', clHi2:'mesmo sem saber', clHi3:'do que precisa',
+        clSub:'Deixe seus dados e a gente escreve para acompanhar você no primeiro passo. Sem compromisso.',
+        clName:'Seu nome', clPhone:'WhatsApp', clBtn:'Começar orientação', clNote:'Respondemos em 24–48 h',
+        ftTagline:'Acompanhamento em saúde mental, orientação e bem-estar. 100% online, em espanhol, onde você estiver.',
+        ftMap:'Mapa', ftContact:'Contato',
+        pxKicker:'também acompanhamos', pxTitle:'Psiquiatria e nutrição, também online', pxSub:'Com profissionais verificados, conectados ao seu processo de bem-estar.',
+        pxBadge:'Disponível',
+        px1t:'Psiquiatria online', px1d:'Avaliação e acompanhamento com profissionais médicos registrados.',
+        px2t:'Nutrição', px2d:'Acompanhamento nutricional integral, conectado ao seu bem-estar.',
+        jwKicker:'junte-se à equipe', jwTitle:'Trabalhe conosco',
+        jwText:'Estamos construindo uma rede de profissionais voltada a acompanhar pessoas de língua espanhola em diferentes etapas da vida, onde quer que estejam. Se você é psicólogo(a), terapeuta de casal, orientador(a) vocacional ou profissional do bem-estar, pode se somar à Epüyen Salud para fazer parte de um espaço que conecta pessoas a um acompanhamento humano, claro e responsável.',
+        jwCta:'Quero me somar como profissional',
+        jwVal1:'Comunidade', jwVal2:'Ética', jwVal3:'Cuidado', jwVal4:'Crescimento',
+        jwFormTitle:'Some-se como profissional', jwFormSub:'Conte sobre você. Revisamos cada inscrição com cuidado.',
+        fName:'Nome e sobrenome', fProf:'Profissão / especialidade', fLoc:'País / cidade',
+        fLic:'Registro ou formação', fMod:'Modalidade de atendimento', fPub:'Público com quem trabalha',
+        fExp:'Experiência breve', fContact:'WhatsApp / email', fLink:'Link profissional / Instagram / LinkedIn',
+        fMsg:'Mensagem breve', fSubmit:'Enviar inscrição', fThanks:'Obrigado! Recebemos sua inscrição e entraremos em contato em breve.',
+        fChoose:'Escolha uma opção', optPsico:'Psicologia', optPareja:'Terapia de casal', optVocac:'Orientação vocacional', optBien:'Bem-estar', optOtro:'Outro',
+        modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas'
+      }
+    };
+let lang = 'es';
+function applyI18n(){
+  const d = I18N[lang] || I18N.es;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(d[k] != null) el.textContent = d[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k = el.getAttribute('data-i18n-ph');
+    if(d[k] != null) el.setAttribute('placeholder', d[k]);
+  });
+  const ln = document.getElementById('langName');
+  if(ln) ln.textContent = {es:'ES',en:'EN',pt:'PT'}[lang];
+  document.documentElement.lang = lang;
+}
+function toggleLang(e){
+  if(e && e.stopPropagation) e.stopPropagation();
+  const m = document.getElementById('langMenu');
+  if(m) m.hidden = !m.hidden;
+}
+function pickLang(l){
+  lang = l;
+  const m = document.getElementById('langMenu');
+  if(m) m.hidden = true;
+  applyI18n();
+}
+function toggleMenu(e){
+  if(e && e.stopPropagation) e.stopPropagation();
+  const m = document.getElementById('mobileMenu');
+  if(m) m.hidden = !m.hidden;
+}
+function closeMenu(){
+  const m = document.getElementById('mobileMenu');
+  if(m) m.hidden = true;
+}
+function openJoin(){
+  closeMenu();
+  const m = document.getElementById('joinModal');
+  if(m){ m.hidden = false; document.body.style.overflow = 'hidden'; }
+}
+function closeJoin(){
+  const m = document.getElementById('joinModal');
+  if(m){ m.hidden = true; document.body.style.overflow = ''; }
+}
+function submitJoin(e){
+  e.preventDefault();
+  const f = e.target;
+  let body = 'Postulación profesional — Epüyen Salud\n\n';
+  new FormData(f).forEach((v,k)=>{ body += k + ': ' + (v || '—') + '\n'; });
+  const subject = encodeURIComponent('Postulación profesional — Epüyen Salud');
+  window.location.href = 'mailto:hola@epuyensalud.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+  f.hidden = true;
+  const t = document.getElementById('joinThanks');
+  if(t) t.hidden = false;
+  return false;
+}
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeJoin(); });
+document.addEventListener('click', e=>{
+  const m = document.getElementById('langMenu');
+  if(m && !m.hidden && !e.target.closest('[data-lang-root]')) m.hidden = true;
+});
+applyI18n();
+</script>
+</body>
+</html>
