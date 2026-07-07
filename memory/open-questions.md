@@ -1,5 +1,5 @@
 # Preguntas abiertas — Epüyen Salud (web)
 
-- ¿Lucía quiere una foto real suya en la sección "Nuestra historia"? Hoy hay una tarjeta decorativa.
+- ¿Lucía valida cómo quedó su foto en "Nuestra historia"? ¿O prefiere una foto limpia sin badges?
 - ¿Los links del nav ("Equipo", "Cómo funciona", etc.) deberían anclar a secciones? Hoy son spans sin href. `#historia` ya existe como ancla.
-- ¿Dónde se deploya esta web? (no hay repo git ni config de hosting en `web/`)
+- ¿Hay deploy automático conectado al repo (Vercel u otro)? El repo existe pero no se verificó hosting.
