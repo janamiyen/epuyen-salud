@@ -16,6 +16,10 @@
 ## Cómo correr local
 `python -m http.server 8080` desde `Desktop/Epuyen/web/` → http://localhost:8080
 
+## Repo y deploy
+- Repo: `janamiyen/epuyen-salud` (cuenta de Jana; Lucas no tiene push directo → `gh auth switch -u janamiyen && git push && gh auth switch -u LucasEzequielSilva`)
+- Deploy: Vercel de janamiyen, auto-deploy al pushear a main → https://epuyen-salud.vercel.app (verificado 2026-07-07)
+
 ## Próximos pasos
 - Validar con Lucía cómo quedó su foto en "Nuestra historia"
 - Revisar nav en ~800–980px con el CTA nuevo más largo
