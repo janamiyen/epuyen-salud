@@ -29,3 +29,15 @@
 ## 2026-07-06 — Sección psiquiatría/nutrición sin kicker
 - **Qué**: nuevo copy de Lucía ("También contamos con psiquiatría y nutrición online"); se quitó el kicker manuscrito porque el título ya arranca con "También".
 - **Revisable**: sí — restaurar el kicker es trivial si se extraña el ritmo visual.
+
+## 2026-07-13 — Card "No sé qué necesito" primera en la grilla
+- **Qué**: la card destacada (oscura, CTA "Empezar la orientación guiada") pasó del 6.º al 1.º lugar en "¿Qué estás buscando?". Pedido directo de Lucía.
+- **Nota**: los badges manuscritos quedaron en las posiciones 3 y 6 (columna derecha); revisable si la grilla se ve desbalanceada.
+- **Revisable**: solo si Lucía lo cambia.
+
+## 2026-07-13 — Form de leads con Formspree (no Typeform, no Web3Forms)
+- **Qué**: el form de cierre (nombre + WhatsApp) envía a Formspree vía fetch; a Lucía le llega cada lead por email y hay dashboard web para verlos.
+- **Razón**: Formspree free (50 envíos/mes) mantiene el form ya diseñado (sin iframe) y suma dashboard. Lucas lo eligió sobre Web3Forms.
+- **Alternativas descartadas**: Typeform (free ~10 respuestas/mes, iframe con branding ajeno que rompe el diseño); Web3Forms (250/mes gratis pero sin dashboard — era la otra candidata).
+- **Pendiente**: crear el form en formspree.io con el email de Lucía (aún sin definir cuál) y pegar el endpoint en `const LEAD_ENDPOINT` (index.html).
+- **Revisable**: sí — si superan 50 leads/mes, pasar a plan pago o migrar a Web3Forms.
