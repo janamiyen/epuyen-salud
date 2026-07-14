@@ -1,6 +1,10 @@
-# Estado actual — Epüyen Salud (web)
+# Estado actual — Epuyen Salud (web)
 
-**Última sesión: 2026-07-13**
+**Última sesión: 2026-07-14**
+
+## Qué se hizo (2026-07-14)
+- **Marca corregida a "Epuyen" (sin diéresis)** en todo el proyecto: Lucía marcó que la ü es errónea. 18 apariciones reemplazadas en `index.html` (title, alts, textos i18n es/en/pt, subjects de mailto y Formspree), README y los archivos de memory. El logo (`assets/logo.png`) ya decía "epuyen" sin ü, no hizo falta tocar assets. Pusheado a prod para que lo vea Lucía.
+- **Form de leads**: Lucas y Lucía lo están verificando entre ellos (endpoint Formspree sigue `PENDIENTE`, pero no bloquear el resto del trabajo por esto).
 
 ## Qué se hizo (2026-07-13)
 - **Card "No sé qué necesito" movida al primer lugar** de la grilla "¿Qué estás buscando?" (pedido de Lucía). Las otras 5 se corrieron un lugar; comentarios HTML renumerados. Claves i18n intactas (sigue siendo `s6*`).

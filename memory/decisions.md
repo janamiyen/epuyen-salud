@@ -1,4 +1,4 @@
-# Decisiones — Epüyen Salud (web)
+# Decisiones — Epuyen Salud (web)
 
 ## 2026-07-06 — Sección "Nuestra historia" con texto íntegro de Lucía
 - **Qué**: se publicó la historia casi textual como la escribió Lucía (primera persona), sin resumir a bullet points corporativos.
@@ -41,3 +41,8 @@
 - **Alternativas descartadas**: Typeform (free ~10 respuestas/mes, iframe con branding ajeno que rompe el diseño); Web3Forms (250/mes gratis pero sin dashboard — era la otra candidata).
 - **Pendiente**: crear el form en formspree.io con el email de Lucía (aún sin definir cuál) y pegar el endpoint en `const LEAD_ENDPOINT` (index.html).
 - **Revisable**: sí — si superan 50 leads/mes, pasar a plan pago o migrar a Web3Forms.
+
+## 2026-07-14 — La marca se escribe "Epuyen", sin diéresis
+- **Qué**: se eliminó la diéresis (ü) de todas las apariciones del nombre de la marca en el sitio, README y memory. La grafía correcta es **Epuyen**, con u normal.
+- **Razón**: corrección directa de Lucía — la ü era errónea. El logo ya lo escribía sin diéresis, el texto había quedado inconsistente.
+- **Revisable**: no (es la grafía oficial de la marca). No reintroducir la ü en textos nuevos.

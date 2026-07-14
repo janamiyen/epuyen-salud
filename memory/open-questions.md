@@ -1,4 +1,4 @@
-# Preguntas abiertas — Epüyen Salud (web)
+# Preguntas abiertas — Epuyen Salud (web)
 
 - ¿Con qué casilla de email se crea la cuenta de Formspree? (¿la personal de Lucía? ¿existe hola@epuyensalud.com?) — bloquea activar el form de leads
 
