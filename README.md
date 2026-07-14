@@ -1,6 +1,6 @@
-# Epüyen Salud — Landing
+# Epuyen Salud — Landing
 
-Sitio web (home) de **Epüyen Salud**: acompañamiento en salud mental, orientación y bienestar, 100% online y en español. Multilenguaje **ES / EN / PT**.
+Sitio web (home) de **Epuyen Salud**: acompañamiento en salud mental, orientación y bienestar, 100% online y en español. Multilenguaje **ES / EN / PT**.
 
 ## Stack
 - HTML + CSS (estilos inline + media queries) + JavaScript vanilla. Sin frameworks ni build.
