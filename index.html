@@ -399,12 +399,19 @@
           <p style="font-size:16.5px;line-height:1.6;color:#5b696f;margin:24px 0 0;max-width:34ch;"><span data-i18n="clSub"></span></p>
         </div>
         <div style="background:#fff;border-radius:22px;padding:24px;box-shadow:0 30px 56px -36px rgba(96,121,133,.8);">
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <input placeholder="" data-i18n-ph="clName" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
-            <input placeholder="" data-i18n-ph="clPhone" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
-            <a style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:15px;border-radius:13px;text-decoration:none;box-shadow:0 5px 0 #cf6262;cursor:pointer;margin-top:2px;"><span data-i18n="clBtn"></span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <form id="leadForm" onsubmit="return submitLead(event)" style="display:flex;flex-direction:column;gap:12px;">
+            <input name="Nombre" required autocomplete="name" placeholder="" data-i18n-ph="clName" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
+            <input name="WhatsApp" type="tel" required autocomplete="tel" placeholder="" data-i18n-ph="clPhone" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+            <button id="leadBtn" type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:15px;border-radius:13px;border:0;font-family:inherit;box-shadow:0 5px 0 #cf6262;cursor:pointer;margin-top:2px;"><span data-i18n="clBtn"></span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
             <div style="display:flex;align-items:center;gap:8px;justify-content:center;color:#8a949a;font-size:12.5px;margin-top:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="2"><path d="M5 13l4 4L19 7"></path></svg><span data-i18n="clNote"></span></div>
+            <p id="leadErr" hidden style="margin:0;text-align:center;color:#c05b5b;font-size:13px;"><span data-i18n="clErr"></span></p>
+          </form>
+          <div id="leadThanks" hidden style="text-align:center;padding:26px 6px;">
+            <span style="display:inline-flex;width:52px;height:52px;border-radius:50%;background:#EDF3E9;color:#7E9B72;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg></span>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;color:#4a5b62;margin:14px 0 0;"><span data-i18n="clOk"></span></h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:8px 0 0;"><span data-i18n="clOkD"></span></p>
           </div>
         </div>
       </div>
@@ -576,6 +583,7 @@ const I18N = {
         clHi1:'Empezá hoy', clHi2:'sin saber aún', clHi3:'qué necesitás',
         clSub:'Dejanos tus datos y te escribimos para acompañarte en el primer paso. Sin compromiso.',
         clName:'Tu nombre', clPhone:'WhatsApp', clBtn:'Encontrá el profesional adecuado', clNote:'Te respondemos en 24–48 h',
+        clSending:'Enviando…', clOk:'¡Listo! Recibimos tus datos.', clOkD:'Te escribimos por WhatsApp en 24–48 h.', clErr:'No se pudo enviar. Probá de nuevo en un rato.',
         ftTagline:'Acompañamiento en salud mental, orientación y bienestar. 100% online, en español e inglés, estés donde estés.',
         ftMap:'Mapa', ftContact:'Contacto',
         pxTitle:'También contamos con psiquiatría y nutrición online', pxSub:'Profesionales verificados, integrados a tu proceso de bienestar.',
@@ -636,6 +644,7 @@ const I18N = {
         clHi1:'Start today', clHi2:'even unsure', clHi3:'of what you need',
         clSub:'Leave your details and we will reach out to guide your first step. No commitment.',
         clName:'Your name', clPhone:'WhatsApp', clBtn:'Find the right professional', clNote:'We reply within 24–48 h',
+        clSending:'Sending…', clOk:'Done! We got your details.', clOkD:'We will text you on WhatsApp within 24–48 h.', clErr:'Something went wrong. Please try again in a bit.',
         ftTagline:'Support in mental health, guidance and wellbeing. 100% online, in Spanish and English, wherever you are.',
         ftMap:'Sitemap', ftContact:'Contact',
         pxTitle:'We also offer online psychiatry and nutrition', pxSub:'Verified professionals, integrated into your wellbeing journey.',
@@ -696,6 +705,7 @@ const I18N = {
         clHi1:'Comece hoje', clHi2:'mesmo sem saber', clHi3:'do que precisa',
         clSub:'Deixe seus dados e a gente escreve para acompanhar você no primeiro passo. Sem compromisso.',
         clName:'Seu nome', clPhone:'WhatsApp', clBtn:'Encontre o profissional certo', clNote:'Respondemos em 24–48 h',
+        clSending:'Enviando…', clOk:'Pronto! Recebemos seus dados.', clOkD:'Escrevemos para você no WhatsApp em 24–48 h.', clErr:'Não foi possível enviar. Tente de novo em instantes.',
         ftTagline:'Acompanhamento em saúde mental, orientação e bem-estar. 100% online, em espanhol e inglês, onde você estiver.',
         ftMap:'Mapa', ftContact:'Contato',
         pxTitle:'Também contamos com psiquiatria e nutrição online', pxSub:'Profissionais verificados, integrados ao seu processo de bem-estar.',
@@ -779,6 +789,34 @@ function submitJoin(e){
   f.hidden = true;
   const t = document.getElementById('joinThanks');
   if(t) t.hidden = false;
+  return false;
+}
+// Formspree: crear el form en https://formspree.io con el mail de Lucía y pegar acá el endpoint (https://formspree.io/f/XXXXXXXX)
+const LEAD_ENDPOINT = 'https://formspree.io/f/PENDIENTE';
+async function submitLead(e){
+  e.preventDefault();
+  const f = e.target;
+  const d = I18N[lang] || I18N.es;
+  const err = document.getElementById('leadErr');
+  const btn = document.getElementById('leadBtn');
+  const label = btn ? btn.querySelector('[data-i18n]') : null;
+  if(err) err.hidden = true;
+  if(btn){ btn.disabled = true; btn.style.opacity = '.7'; }
+  if(label) label.textContent = d.clSending;
+  try{
+    const fd = new FormData(f);
+    fd.append('_subject', 'Nuevo contacto — Epüyen Salud');
+    const r = await fetch(LEAD_ENDPOINT, { method:'POST', body: fd, headers:{ 'Accept':'application/json' } });
+    if(!r.ok) throw new Error('status ' + r.status);
+    f.hidden = true;
+    const t = document.getElementById('leadThanks');
+    if(t) t.hidden = false;
+  }catch(_){
+    if(err) err.hidden = false;
+  }finally{
+    if(btn){ btn.disabled = false; btn.style.opacity = ''; }
+    if(label) label.textContent = d.clBtn;
+  }
   return false;
 }
 document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeJoin(); });
