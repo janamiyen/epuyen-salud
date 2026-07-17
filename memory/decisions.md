@@ -46,3 +46,15 @@
 - **Qué**: se eliminó la diéresis (ü) de todas las apariciones del nombre de la marca en el sitio, README y memory. La grafía correcta es **Epuyen**, con u normal.
 - **Razón**: corrección directa de Lucía — la ü era errónea. El logo ya lo escribía sin diéresis, el texto había quedado inconsistente.
 - **Revisable**: no (es la grafía oficial de la marca). No reintroducir la ü en textos nuevos.
+
+## 2026-07-17 — Todos los CTAs derivan a WhatsApp con mensaje por contexto (por el momento)
+- **Qué**: cada botón/card del sitio linkea a `wa.me/34611457391` (WhatsApp de Lucía, +34 611 45 73 91) con un mensaje precargado distinto según la sección ("no sé qué necesito", nutrición, psiquiatría, trabajar con ustedes, etc.), localizado en es/en/pt vía claves `wa*` en `I18N` + atributo `data-wa`.
+- **Razón**: pedido de Lucas — activar la conversión ya, sin esperar el flujo de orientación guiada ni Formspree.
+- **Implicancias**: el CTA "Trabajá con nosotros" ya no abre el modal de postulación (el modal sigue en el código por si se reactiva); el form de cierre deriva a WhatsApp con el nombre precargado mientras `LEAD_ENDPOINT` diga `PENDIENTE`, y vuelve solo a Formspree al pegar el endpoint real.
+- **Revisable**: sí — es explícitamente "por el momento"; cuando exista flujo propio (form de orientación / Formspree), redirigir ahí.
+
+## 2026-07-17 — CTAs pill principales con tamaño unificado (.cta-eq)
+- **Qué**: hero CTA1, "Hablar por WhatsApp" y "Quiero sumarme como profesional" comparten la clase `.cta-eq`: 57px de alto, `min-width:min(340px,100%)`, mismo padding y tipografía.
+- **Razón**: pedido de Lucas — los botones del hero se veían de tamaños distintos (quedan apilados en desktop desde que el CTA se alargó, y con anchos dispares).
+- **Alternativa descartada**: achicar los botones para que entren lado a lado (cambiaba la jerarquía visual sin que nadie lo pidiera).
+- **Revisable**: sí — si se acorta el copy del CTA, pueden volver a convivir en una fila.

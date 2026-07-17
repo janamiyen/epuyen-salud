@@ -1,6 +1,13 @@
 # Estado actual — Epuyen Salud (web)
 
-**Última sesión: 2026-07-14**
+**Última sesión: 2026-07-17**
+
+## Qué se hizo (2026-07-17)
+- **Todos los CTAs cableados a WhatsApp de Lucía** (+34 611 45 73 91 → `wa.me/34611457391`) con mensaje precargado según contexto, vía atributo `data-wa` + helper `waLink()`. Los mensajes viven en `I18N` (claves `wa*`) y se regeneran al cambiar idioma (es/en/pt) dentro de `applyI18n()`.
+- **Elementos cableados (14)**: CTA nav + menú mobile + hero (`waFind`), "Hablar por WhatsApp" y WhatsApp del footer (`waGeneric`), las 6 cards de "¿Qué estás buscando?" ahora son `<a>` clickeables enteras (`waUnsure`, `waTherapy`, `waCouple`, `waVocational`, `waEmotional`, `waAbroad`), cards psiquiatría/nutrición también clickeables (`waPsych`, `waNutri`), CTA "Trabajá con nosotros" (`waJoin` — **ya no abre el modal**; el modal `joinModal` quedó en el código, sin uso).
+- **Botones del hero con el mismo tamaño**: nueva clase `.cta-eq` (57px de alto, `min-width:min(340px,100%)`, mismo padding/font) aplicada a hero CTA1, CTA2 y jwCta. Quedan apilados en desktop (el CTA largo no entra al lado del otro) pero idénticos en tamaño.
+- **Form de cierre**: mientras `LEAD_ENDPOINT` siga con `PENDIENTE`, `submitLead()` abre WhatsApp con `waLead` ("¡Hola! Soy {name}…") en vez de mostrar error. Cuando se pegue el endpoint real de Formspree, vuelve solo al flujo original.
+- Verificado en Chrome local (puerto 8931; el 8080 está bloqueado por Windows ahora): alturas/anchos iguales, hrefs correctos en 3 idiomas, HTML balanceado, JS ok. **Sin commit/push todavía.**
 
 ## Qué se hizo (2026-07-14)
 - **Marca corregida a "Epuyen" (sin diéresis)** en todo el proyecto: Lucía marcó que la ü es errónea. 18 apariciones reemplazadas en `index.html` (title, alts, textos i18n es/en/pt, subjects de mailto y Formspree), README y los archivos de memory. El logo (`assets/logo.png`) ya decía "epuyen" sin ü, no hizo falta tocar assets. Pusheado a prod para que lo vea Lucía.

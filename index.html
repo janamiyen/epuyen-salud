@@ -32,6 +32,8 @@
   .hero > div{min-width:0;}
   .eyebrow{flex-wrap:wrap;}
   .eyebrow > span{min-width:0;}
+  /* CTA pills principales: mismo alto y padding para todos */
+  .cta-eq{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;min-height:57px;min-width:min(340px,100%);padding:0 28px;border-radius:999px;text-decoration:none;cursor:pointer;}
 
   /* burger + mobile menu */
   .burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(96,121,133,.28);background:#fff;cursor:pointer;color:#607985;padding:0;}
@@ -128,7 +130,7 @@
             </div>
           </div>
         </div>
-        <a class="nav-cta" style="display:inline-flex;align-items:center;gap:8px;background:#E97878;color:#fff;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 16px 26px -12px rgba(233,120,120,.85);cursor:pointer;white-space:nowrap;"><span data-i18n="empezar"></span>
+        <a class="nav-cta" data-wa="waFind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#E97878;color:#fff;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 16px 26px -12px rgba(233,120,120,.85);cursor:pointer;white-space:nowrap;"><span data-i18n="empezar"></span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
         <button class="burger" aria-label="Menú" onclick="toggleMenu(event)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
@@ -142,7 +144,7 @@
       <a class="mm-link" data-i18n="nav2" onclick="closeMenu()"></a>
       <a class="mm-link" data-i18n="nav3" onclick="closeMenu()"></a>
       <a class="mm-link" data-i18n="nav4" onclick="closeMenu()"></a>
-      <a class="mm-cta" data-i18n="empezar" onclick="closeMenu()"></a>
+      <a class="mm-cta" data-i18n="empezar" data-wa="waFind" target="_blank" rel="noopener" onclick="closeMenu()"></a>
     </div>
 
     <!-- ============ HERO ============ -->
@@ -163,9 +165,9 @@
         <p style="font-size:18.5px;line-height:1.62;color:#5b696f;max-width:30em;margin:24px 0 0;"><span data-i18n="sub"></span></p>
 
         <div style="display:flex;gap:15px;margin-top:34px;flex-wrap:wrap;align-items:center;">
-          <a style="display:inline-flex;align-items:center;gap:10px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:16px 28px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 18px 30px -14px rgba(233,120,120,.9);cursor:pointer;"><span data-i18n="cta1"></span>
+          <a class="cta-eq" data-wa="waFind" target="_blank" rel="noopener" style="background:#E97878;color:#fff;box-shadow:0 5px 0 #cf6262,0 18px 30px -14px rgba(233,120,120,.9);"><span data-i18n="cta1"></span>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-          <a style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#607985;font-weight:700;font-size:16px;padding:15px 24px;border-radius:999px;text-decoration:none;border:1.5px solid rgba(96,121,133,.22);cursor:pointer;">
+          <a class="cta-eq" data-wa="waGeneric" target="_blank" rel="noopener" style="background:#fff;color:#607985;border:1.5px solid rgba(96,121,133,.22);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l1.3-3.5A7.5 7.5 0 1 1 8.5 18.7z"></path></svg><span data-i18n="cta2"></span></a>
         </div>
       </div>
@@ -224,56 +226,56 @@
       <div class="cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;">
 
         <!-- card 1 highlighted -->
-        <div style="position:relative;background:#607985;border-radius:24px;padding:26px;min-height:188px;overflow:hidden;">
+        <a data-wa="waUnsure" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#607985;border-radius:24px;padding:26px;min-height:188px;overflow:hidden;">
           <div aria-hidden="true" style="position:absolute;top:-34px;right:-34px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07);"></div>
           <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="rgba(255,255,255,.5)" style="position:absolute;top:24px;right:24px;"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg>
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:rgba(255,255,255,.16);color:#fff;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"></path><path d="M12 14c0-3 2-5 5-5 0 3-2 5-5 5z"></path><path d="M12 16c0-2.5-2-4-4.5-4 0 2.5 2 4 4.5 4z"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#fff;margin:16px 0 0;"><span data-i18n="s6t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,.82);margin:7px 0 0;max-width:24ch;"><span data-i18n="s6d"></span></p>
           <span style="display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:#fff;font-size:13.5px;font-weight:700;"><span data-i18n="s6cta"></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
-        </div>
+        </a>
 
         <!-- card 2 -->
-        <div style="position:relative;background:#FAD9CF;border-radius:24px;padding:26px;min-height:188px;">
+        <a data-wa="waTherapy" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#FAD9CF;border-radius:24px;padding:26px;min-height:188px;">
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#E97878;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#5a3b33;margin:16px 0 0;"><span data-i18n="s1t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:#8a5e52;margin:7px 0 0;max-width:22ch;"><span data-i18n="s1d"></span></p>
           <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#E97878;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
-        </div>
+        </a>
 
         <!-- card 3 -->
-        <div style="position:relative;background:#DDE8D5;border-radius:24px;padding:26px;min-height:188px;">
+        <a data-wa="waCouple" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#DDE8D5;border-radius:24px;padding:26px;min-height:188px;">
           <span style="position:absolute;top:-10px;right:18px;font-family:'Dancing Script',cursive;font-weight:600;font-size:19px;color:#5e7350;background:#fff;padding:2px 12px 4px;border-radius:9px;transform:rotate(4deg);box-shadow:0 8px 18px -12px rgba(96,121,133,.7);"><span data-i18n="qtag1"></span></span>
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#7E9B72;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9.5" r="3"></circle><circle cx="15" cy="9.5" r="3"></circle><path d="M4 19c0-2.8 2.2-5 5-5M20 19c0-2.8-2.2-5-5-5"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#3f5236;margin:16px 0 0;"><span data-i18n="s2t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:#5e7350;margin:7px 0 0;max-width:22ch;"><span data-i18n="s2d"></span></p>
           <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#7E9B72;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
-        </div>
+        </a>
 
         <!-- card 4 -->
-        <div style="position:relative;background:#CFEAE7;border-radius:24px;padding:26px;min-height:188px;">
+        <a data-wa="waVocational" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#CFEAE7;border-radius:24px;padding:26px;min-height:188px;">
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#4f928d;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="m15 9-2 5-4 1 2-5z"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#2f5a55;margin:16px 0 0;"><span data-i18n="s3t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:#4f7c77;margin:7px 0 0;max-width:22ch;"><span data-i18n="s3d"></span></p>
           <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#4f928d;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
-        </div>
+        </a>
 
         <!-- card 5 -->
-        <div style="position:relative;background:#F6E3D4;border-radius:24px;padding:26px;min-height:188px;">
+        <a data-wa="waEmotional" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#F6E3D4;border-radius:24px;padding:26px;min-height:188px;">
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#D08A5E;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.5-4.2-6.5-9A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 6.5 2c0 4.8-6.5 10-6.5 10z"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#7a5331;margin:16px 0 0;"><span data-i18n="s4t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:#9a724b;margin:7px 0 0;max-width:22ch;"><span data-i18n="s4d"></span></p>
           <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#D08A5E;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
-        </div>
+        </a>
 
         <!-- card 6 -->
-        <div style="position:relative;background:#E7DCF0;border-radius:24px;padding:26px;min-height:188px;">
+        <a data-wa="waAbroad" target="_blank" rel="noopener" style="display:block;text-decoration:none;cursor:pointer;position:relative;background:#E7DCF0;border-radius:24px;padding:26px;min-height:188px;">
           <span style="position:absolute;top:-10px;right:18px;font-family:'Dancing Script',cursive;font-weight:600;font-size:19px;color:#7c5a91;background:#fff;padding:2px 12px 4px;border-radius:9px;transform:rotate(-4deg);box-shadow:0 8px 18px -12px rgba(96,121,133,.7);"><span data-i18n="qtag3"></span></span>
           <span style="display:inline-flex;width:50px;height:50px;border-radius:15px;background:#fff;color:#9b78b0;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"></path></svg></span>
           <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4f3a5e;margin:16px 0 0;"><span data-i18n="s5t"></span></h3>
           <p style="font-size:14px;line-height:1.5;color:#7c5a91;margin:7px 0 0;max-width:22ch;"><span data-i18n="s5d"></span></p>
           <span style="position:absolute;bottom:22px;right:22px;width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#9b78b0;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
-        </div>
+        </a>
 
       </div>
     </section>
@@ -286,23 +288,23 @@
       </div>
       <div class="soon" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;">
         <!-- psiquiatría -->
-        <div style="position:relative;background:#fff;border:1px solid rgba(155,120,176,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
+        <a data-wa="waPsych" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer;position:relative;background:#fff;border:1px solid rgba(155,120,176,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
           <span style="flex-shrink:0;display:inline-flex;width:54px;height:54px;border-radius:16px;background:#EFE6F3;color:#9b78b0;align-items:center;justify-content:center;"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6a4 4 0 0 0 6 0V3"></path><path d="M12 13v3a4 4 0 0 1-8 0v-1"></path><circle cx="18" cy="16" r="3"></circle></svg></span>
           <div>
             <span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b78b0;background:#EFE6F3;border-radius:999px;padding:4px 11px;"><span data-i18n="pxBadge"></span></span>
             <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:11px 0 0;"><span data-i18n="px1t"></span></h3>
             <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:6px 0 0;"><span data-i18n="px1d"></span></p>
           </div>
-        </div>
+        </a>
         <!-- nutrición -->
-        <div style="position:relative;background:#fff;border:1px solid rgba(126,155,114,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
+        <a data-wa="waNutri" target="_blank" rel="noopener" style="text-decoration:none;cursor:pointer;position:relative;background:#fff;border:1px solid rgba(126,155,114,.26);border-radius:24px;padding:28px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 22px 44px -36px rgba(96,121,133,.7);">
           <span style="flex-shrink:0;display:inline-flex;width:54px;height:54px;border-radius:16px;background:#E8F0E3;color:#7E9B72;align-items:center;justify-content:center;"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c5-3 8-7 8-11a4 4 0 0 0-8-1 4 4 0 0 0-8 1c0 4 3 8 8 11z"></path><path d="M12 9c1.5 1 2 2.5 2 4"></path></svg></span>
           <div>
             <span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7E9B72;background:#E8F0E3;border-radius:999px;padding:4px 11px;"><span data-i18n="pxBadge"></span></span>
             <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;color:#4a5b62;margin:11px 0 0;"><span data-i18n="px2t"></span></h3>
             <p style="font-size:14.5px;line-height:1.55;color:#7c878c;margin:6px 0 0;"><span data-i18n="px2d"></span></p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -434,7 +436,7 @@
               <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal3"></span></span>
               <span style="font-size:13px;font-weight:600;color:#cfe8e5;background:rgba(191,229,227,.14);border-radius:999px;padding:7px 14px;"><span data-i18n="jwVal4"></span></span>
             </div>
-            <a onclick="openJoin()" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#4a5b62;font-weight:700;font-size:15.5px;padding:15px 26px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 rgba(0,0,0,.18);cursor:pointer;margin-top:26px;"><span data-i18n="jwCta"></span>
+            <a class="cta-eq" data-wa="waJoin" target="_blank" rel="noopener" style="background:#fff;color:#4a5b62;box-shadow:0 5px 0 rgba(0,0,0,.18);margin-top:26px;"><span data-i18n="jwCta"></span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
           </div>
           <div class="join-aside" aria-hidden="true" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;">
@@ -469,7 +471,7 @@
         <div>
           <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9c9183;font-weight:700;"><span data-i18n="ftContact"></span></div>
           <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:14px;color:#607985;">
-            <span>WhatsApp</span><span>hola@epuyensalud.com</span><span>Instagram</span>
+            <a data-wa="waGeneric" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;cursor:pointer;">WhatsApp</a><span>hola@epuyensalud.com</span><span>Instagram</span>
           </div>
         </div>
       </div>
@@ -610,7 +612,19 @@ const I18N = {
         ab4:'El nombre viene del mapuche y significa «dos que van». Eso lo resume todo. Caminar acompañados. Que nadie tenga que atravesar sus procesos solo.',
         ab5:'Nos inspira la Patagonia argentina — su calma, su fuerza — y desde ahí construimos un espacio que conecta personas con profesionales verificados de salud mental, orientación y bienestar. Sin respuestas automáticas. Sin protocolos fríos. Con criterio humano.',
         ab6:'Porque a veces no necesitás saber exactamente qué te pasa. A veces solo necesitás a alguien que te ayude a dar el primer paso.',
-        abSign:'— Lucía, fundadora de Epuyen Salud'
+        abSign:'— Lucía, fundadora de Epuyen Salud',
+        waGeneric:'¡Hola! Me gustaría reservar una consulta en Epuyen.',
+        waFind:'¡Hola! Me gustaría reservar una consulta en Epuyen y encontrar el profesional adecuado.',
+        waUnsure:'¡Hola! Me gustaría reservar una consulta en Epuyen, no sé qué necesito.',
+        waTherapy:'¡Hola! Me gustaría reservar una consulta de psicoterapia individual en Epuyen.',
+        waCouple:'¡Hola! Me gustaría reservar una consulta de terapia de pareja en Epuyen.',
+        waVocational:'¡Hola! Me gustaría hacer el test vocacional en Epuyen.',
+        waEmotional:'¡Hola! Me gustaría reservar una consulta de orientación emocional en Epuyen.',
+        waAbroad:'¡Hola! Vivo en el exterior y me gustaría reservar una consulta en Epuyen.',
+        waPsych:'¡Hola! Me gustaría reservar una consulta de psiquiatría en Epuyen.',
+        waNutri:'¡Hola! Me gustaría reservar una consulta de nutrición en Epuyen.',
+        waJoin:'¡Hola! Soy profesional y me gustaría trabajar con ustedes en Epuyen.',
+        waLead:'¡Hola! Soy {name}, me gustaría reservar una consulta en Epuyen.'
       },
       en:{
         nav1:'How we help', nav2:'How it works', nav3:'Our team', nav4:'FAQ',
@@ -671,7 +685,19 @@ const I18N = {
         ab4:'The name comes from the Mapuche language and means "two that go together". That says it all. Walking side by side. So that no one has to go through their process alone.',
         ab5:'We are inspired by Argentine Patagonia — its calm, its strength — and from there we built a space that connects people with verified professionals in mental health, guidance and wellbeing. No automated answers. No cold protocols. With human judgment.',
         ab6:'Because sometimes you don\'t need to know exactly what\'s wrong. Sometimes you just need someone to help you take the first step.',
-        abSign:'— Lucía, founder of Epuyen Salud'
+        abSign:'— Lucía, founder of Epuyen Salud',
+        waGeneric:'Hi! I would like to book a consultation at Epuyen.',
+        waFind:'Hi! I would like to book a consultation at Epuyen and find the right professional.',
+        waUnsure:'Hi! I would like to book a consultation at Epuyen, I am not sure what I need.',
+        waTherapy:'Hi! I would like to book an individual therapy consultation at Epuyen.',
+        waCouple:'Hi! I would like to book a couples therapy consultation at Epuyen.',
+        waVocational:'Hi! I would like to take the vocational test at Epuyen.',
+        waEmotional:'Hi! I would like to book an emotional guidance consultation at Epuyen.',
+        waAbroad:'Hi! I live abroad and I would like to book a consultation at Epuyen.',
+        waPsych:'Hi! I would like to book an online psychiatry consultation at Epuyen.',
+        waNutri:'Hi! I would like to book a nutrition consultation at Epuyen.',
+        waJoin:'Hi! I am a professional and I would like to work with you at Epuyen.',
+        waLead:'Hi! I am {name}, I would like to book a consultation at Epuyen.'
       },
       pt:{
         nav1:'Como acompanhamos', nav2:'Como funciona', nav3:'Equipe', nav4:'Perguntas',
@@ -732,10 +758,25 @@ const I18N = {
         ab4:'O nome vem do mapuche e significa «dois que caminham juntos». Isso resume tudo. Caminhar acompanhados. Que ninguém precise atravessar seus processos sozinho.',
         ab5:'Nos inspira a Patagônia argentina — sua calma, sua força — e a partir daí construímos um espaço que conecta pessoas a profissionais verificados de saúde mental, orientação e bem-estar. Sem respostas automáticas. Sem protocolos frios. Com critério humano.',
         ab6:'Porque às vezes você não precisa saber exatamente o que está acontecendo. Às vezes só precisa de alguém que ajude você a dar o primeiro passo.',
-        abSign:'— Lucía, fundadora da Epuyen Salud'
+        abSign:'— Lucía, fundadora da Epuyen Salud',
+        waGeneric:'Olá! Gostaria de agendar uma consulta na Epuyen.',
+        waFind:'Olá! Gostaria de agendar uma consulta na Epuyen e encontrar o profissional certo.',
+        waUnsure:'Olá! Gostaria de agendar uma consulta na Epuyen, não sei do que preciso.',
+        waTherapy:'Olá! Gostaria de agendar uma consulta de psicoterapia individual na Epuyen.',
+        waCouple:'Olá! Gostaria de agendar uma consulta de terapia de casal na Epuyen.',
+        waVocational:'Olá! Gostaria de fazer o teste vocacional na Epuyen.',
+        waEmotional:'Olá! Gostaria de agendar uma consulta de orientação emocional na Epuyen.',
+        waAbroad:'Olá! Moro no exterior e gostaria de agendar uma consulta na Epuyen.',
+        waPsych:'Olá! Gostaria de agendar uma consulta de psiquiatria na Epuyen.',
+        waNutri:'Olá! Gostaria de agendar uma consulta de nutrição na Epuyen.',
+        waJoin:'Olá! Sou profissional e gostaria de trabalhar com vocês na Epuyen.',
+        waLead:'Olá! Sou {name} e gostaria de agendar uma consulta na Epuyen.'
       }
     };
 let lang = 'es';
+// WhatsApp de Lucía (+34 611 45 73 91)
+const WA_NUMBER = '34611457391';
+function waLink(msg){ return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg); }
 function applyI18n(){
   const d = I18N[lang] || I18N.es;
   document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -745,6 +786,10 @@ function applyI18n(){
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
     const k = el.getAttribute('data-i18n-ph');
     if(d[k] != null) el.setAttribute('placeholder', d[k]);
+  });
+  document.querySelectorAll('[data-wa]').forEach(el=>{
+    const k = el.getAttribute('data-wa');
+    el.setAttribute('href', waLink(d[k] || d.waGeneric));
   });
   const ln = document.getElementById('langName');
   if(ln) ln.textContent = {es:'ES',en:'EN',pt:'PT'}[lang];
@@ -797,6 +842,12 @@ async function submitLead(e){
   e.preventDefault();
   const f = e.target;
   const d = I18N[lang] || I18N.es;
+  // Formspree aún sin endpoint: derivar el lead a WhatsApp con el nombre precargado
+  if(LEAD_ENDPOINT.indexOf('PENDIENTE') !== -1){
+    const name = (new FormData(f).get('Nombre') || '').toString().trim();
+    window.open(waLink((d.waLead || d.waGeneric).replace('{name}', name)), '_blank', 'noopener');
+    return false;
+  }
   const err = document.getElementById('leadErr');
   const btn = document.getElementById('leadBtn');
   const label = btn ? btn.querySelector('[data-i18n]') : null;

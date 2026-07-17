@@ -1,7 +1,8 @@
 # Backlog — Epuyen Salud (web)
 
 ## P1
-- Crear form en Formspree con el email de Lucía y pegar el endpoint en `const LEAD_ENDPOINT` (index.html) — hasta entonces el submit muestra error. En verificación entre Lucas y Lucía (14/7/2026); no frena otros deploys
+- Commitear y pushear los CTAs a WhatsApp (cambios del 17/7/2026 sin deployar; probar antes en celu real)
+- Crear form en Formspree con el email de Lucía y pegar el endpoint en `const LEAD_ENDPOINT` (index.html) — mientras tanto el submit deriva a WhatsApp con el nombre precargado (ya no muestra error). En verificación entre Lucas y Lucía (14/7/2026)
 - Validar con Lucía la sección "Nuestra historia" (tono, visual, ¿foto?)
 - Revisar nav en anchos 800–980px con el CTA nuevo más largo
 
@@ -13,6 +14,7 @@
 - (vacío)
 
 ## Done reciente
+- 2026-07-17: todos los CTAs/cards linkean a WhatsApp de Lucía con mensaje por contexto en es/en/pt; botones pill principales con tamaño unificado (`.cta-eq`); form de cierre deriva a WhatsApp mientras no haya endpoint Formspree
 - 2026-07-14: marca corregida a "Epuyen" sin diéresis en sitio, README y memory (corrección de Lucía)
 - 2026-07-13: card "No sé qué necesito" movida al 1.º lugar de la grilla (pedido de Lucía)
 - 2026-07-13: form de cierre cableado a Formspree (fetch + honeypot + estados enviando/gracias/error es/en/pt) — falta solo el endpoint real
