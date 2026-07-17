@@ -62,9 +62,8 @@
   /* Tablet / small laptop ( <= 980px ) */
   @media (max-width:980px){
     .wrap{padding:0 24px !important;}
-    .hero{grid-template-columns:1fr !important;gap:18px !important;padding:18px 0 16px !important;}
-    .hero .hero-visual{max-width:270px;margin:4px auto 0;width:100%;}
-    .hero-frame{height:250px !important;}
+    .hero{padding:22px 0 30px !important;}
+    .hero-deco{display:none !important;}
     .h1{font-size:clamp(38px,7vw,56px) !important;}
     .closing-grid{grid-template-columns:1fr !important;gap:30px !important;}
     .steps{grid-template-columns:1fr !important;}
@@ -81,8 +80,6 @@
     .cards{grid-template-columns:1fr 1fr !important;}
     .soon{grid-template-columns:1fr !important;}
     .closing{padding:38px 26px !important;}
-    .deco-chat{top:-2px !important;left:-4px !important;width:74px !important;}
-    .deco-check{bottom:-4px !important;right:-4px !important;width:86px !important;}
   }
 
   /* Phone ( <= 520px ) */
@@ -95,7 +92,6 @@
     .h1{font-size:clamp(26px,7.4vw,40px) !important;overflow-wrap:break-word;}
     .foot{flex-direction:column;gap:24px !important;}
     .closing-cards span{font-size:30px !important;white-space:normal !important;}
-    .hero-deco{width:104px !important;}
   }
 </style>
 </head>
@@ -104,8 +100,8 @@
 <div data-screen-label="Home v2" data-lang-root="" style="position:relative;min-height:100vh;background:#FAF6F0;overflow:hidden;padding-bottom:4px;">
 
   <!-- ambient decor -->
-  <div class="amb-a" aria-hidden="true" style="position:absolute;top:-160px;right:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,#F3A28F 0%,rgba(243,162,143,0) 68%);opacity:.4;pointer-events:none;"></div>
-  <div class="amb-b" aria-hidden="true" style="position:absolute;top:520px;left:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#BFE5E3 0%,rgba(191,229,227,0) 68%);opacity:.5;pointer-events:none;"></div>
+  <div class="amb-a" aria-hidden="true" style="position:absolute;top:-170px;right:-140px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#F3A28F 0%,rgba(243,162,143,0) 68%);opacity:.38;pointer-events:none;"></div>
+  <div class="amb-b" aria-hidden="true" style="position:absolute;top:280px;left:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#BFE5E3 0%,rgba(191,229,227,0) 68%);opacity:.5;pointer-events:none;"></div>
 
   <div class="wrap" style="position:relative;max-width:1180px;margin:0 auto;padding:0 34px;z-index:2;">
 
@@ -130,7 +126,7 @@
             </div>
           </div>
         </div>
-        <a class="nav-cta" data-wa="waFind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#E97878;color:#fff;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 16px 26px -12px rgba(233,120,120,.85);cursor:pointer;white-space:nowrap;"><span data-i18n="empezar"></span>
+        <a class="nav-cta" data-wa="waSession" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#E97878;color:#fff;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #cf6262,0 16px 26px -12px rgba(233,120,120,.85);cursor:pointer;white-space:nowrap;"><span data-i18n="empezar"></span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
         <button class="burger" aria-label="Menú" onclick="toggleMenu(event)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
@@ -144,14 +140,22 @@
       <a class="mm-link" data-i18n="nav2" onclick="closeMenu()"></a>
       <a class="mm-link" data-i18n="nav3" onclick="closeMenu()"></a>
       <a class="mm-link" data-i18n="nav4" onclick="closeMenu()"></a>
-      <a class="mm-cta" data-i18n="empezar" data-wa="waFind" target="_blank" rel="noopener" onclick="closeMenu()"></a>
+      <a class="mm-cta" data-i18n="empezar" data-wa="waSession" target="_blank" rel="noopener" onclick="closeMenu()"></a>
     </div>
 
     <!-- ============ HERO ============ -->
-    <section class="hero" style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:38px 0 30px;">
+    <section class="hero" style="position:relative;padding:46px 0 60px;">
+      <!-- deco mini flotantes flanqueando el título (viñetas SVG definitivas: las hace Lucas) -->
+      <img class="hero-deco" src="assets/deco-chat.png" alt="" aria-hidden="true" style="position:absolute;top:34%;left:1%;width:clamp(76px,8.5vw,112px);height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty2 7s ease-in-out infinite;">
+      <img class="hero-deco" src="assets/deco-check.png" alt="" aria-hidden="true" style="position:absolute;top:24%;right:1%;width:clamp(88px,9.5vw,128px);height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty 6.5s ease-in-out infinite;">
+      <!-- micro acentos geométricos -->
+      <span class="hero-deco" aria-hidden="true" style="position:absolute;top:15%;left:7%;width:14px;height:14px;border-radius:50%;border:3px solid #F3A28F;"></span>
+      <span class="hero-deco" aria-hidden="true" style="position:absolute;bottom:24%;left:11%;width:9px;height:9px;border-radius:50%;background:#4f928d;opacity:.55;"></span>
+      <span class="hero-deco" aria-hidden="true" style="position:absolute;top:12%;right:8%;width:8px;height:8px;border-radius:50%;background:#B78BC6;opacity:.6;"></span>
+      <span class="hero-deco" aria-hidden="true" style="position:absolute;bottom:28%;right:12%;width:12px;height:12px;border-radius:50%;border:3px solid #BFE5E3;"></span>
 
-      <div style="position:relative;">
-        <div style="display:flex;align-items:center;gap:11px;flex-wrap:wrap;">
+      <div style="position:relative;text-align:center;max-width:760px;margin:0 auto;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;">
           <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;color:#E97878;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
             <span style="width:7px;height:7px;border-radius:50%;background:#E97878;"></span><span data-i18n="eyebrow"></span>
           </span>
@@ -160,36 +164,16 @@
           </span>
         </div>
 
-        <h1 class="h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:60px;line-height:1.04;color:#4a5b62;letter-spacing:-.015em;margin:22px 0 0;"><span data-i18n="h1a"></span><span style="font-family:'Dancing Script',cursive;font-weight:600;color:#E97878;font-size:1.18em;text-decoration:underline wavy #F3A28F;text-decoration-thickness:2.5px;text-underline-offset:7px;padding:0 .08em;"><span data-i18n="h1em"></span></span><span data-i18n="h1b"></span></h1>
+        <h1 class="h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:64px;line-height:1.04;color:#4a5b62;letter-spacing:-.015em;margin:22px 0 0;"><span data-i18n="h1a"></span><span style="font-family:'Dancing Script',cursive;font-weight:600;color:#E97878;font-size:1.18em;text-decoration:underline wavy #F3A28F;text-decoration-thickness:2.5px;text-underline-offset:7px;padding:0 .08em;"><span data-i18n="h1em"></span></span><span data-i18n="h1b"></span></h1>
 
-        <p style="font-size:18.5px;line-height:1.62;color:#5b696f;max-width:30em;margin:24px 0 0;"><span data-i18n="sub"></span></p>
+        <p style="font-size:18.5px;line-height:1.62;color:#5b696f;max-width:30em;margin:24px auto 0;"><span data-i18n="sub"></span></p>
 
-        <div style="display:flex;gap:15px;margin-top:34px;flex-wrap:wrap;align-items:center;">
+        <div style="display:flex;gap:15px;margin-top:34px;flex-wrap:wrap;align-items:center;justify-content:center;">
           <a class="cta-eq" data-wa="waFind" target="_blank" rel="noopener" style="background:#E97878;color:#fff;box-shadow:0 5px 0 #cf6262,0 18px 30px -14px rgba(233,120,120,.9);"><span data-i18n="cta1"></span>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
           <a class="cta-eq" data-wa="waGeneric" target="_blank" rel="noopener" style="background:#fff;color:#607985;border:1.5px solid rgba(96,121,133,.22);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7E9B72" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l1.3-3.5A7.5 7.5 0 1 1 8.5 18.7z"></path></svg><span data-i18n="cta2"></span></a>
         </div>
-      </div>
-
-      <!-- hero visual -->
-      <div class="hero-visual" style="position:relative;">
-        <div aria-hidden="true" style="position:absolute;top:-22px;right:-14px;width:88%;height:96%;border-radius:46% 54% 58% 42%/52% 44% 56% 48%;background:#CDEAE6;"></div>
-        <div aria-hidden="true" style="position:absolute;bottom:-26px;left:-26px;width:46%;height:46%;border-radius:50% 50% 48% 52%/50%;background:#EFE0D2;"></div>
-        <div class="hero-frame" style="position:relative;width:100%;height:466px;border-radius:46% 54% 56% 44%/52% 46% 54% 48%;overflow:hidden;box-shadow:0 34px 60px -34px rgba(96,121,133,.6);background:radial-gradient(120% 120% at 50% 28%,#FBF6EF 0%,#E9F1EA 100%);display:flex;align-items:flex-end;justify-content:center;">
-          <img id="v2hero" src="assets/hero-person.png" alt="Profesional de Epuyen Salud" style="display:block;width:90%;height:auto;max-height:99%;object-fit:contain;">
-        </div>
-        <!-- isotipo badge -->
-        <div style="position:absolute;top:10px;right:16px;width:56px;height:56px;border-radius:50%;background:#FAF6F0;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -12px rgba(96,121,133,.7);animation:floaty 6s ease-in-out infinite;z-index:3;">
-          <img src="assets/isotipo.png" alt="" style="height:36px;width:auto;">
-        </div>
-        <!-- floating illustrations -->
-        <img class="hero-deco deco-chat" src="assets/deco-chat.png" alt="" aria-hidden="true" style="position:absolute;top:-18px;left:-30px;width:132px;height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty2 7s ease-in-out infinite;z-index:3;">
-        <img class="hero-deco deco-check" src="assets/deco-check.png" alt="" aria-hidden="true" style="position:absolute;bottom:-14px;right:-26px;width:152px;height:auto;filter:drop-shadow(0 12px 22px rgba(96,121,133,.26));animation:floaty 6.5s ease-in-out infinite;z-index:3;">
-        <!-- script tag -->
-        <span style="position:absolute;bottom:38px;left:-16px;font-family:'Dancing Script',cursive;font-weight:600;font-size:23px;color:#b5552f;background:#FAD9CF;padding:4px 15px 6px;border-radius:11px 9px 8px 12px;transform:rotate(-4deg);box-shadow:0 10px 22px -14px rgba(96,121,133,.7);z-index:3;"><span data-i18n="heroTag2"></span></span>
-        <!-- sparkle -->
-        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="#B78BC6" style="position:absolute;top:40%;left:-6px;z-index:3;"><path d="M12 0c.6 6 .6 6 12 12-11.4 6-11.4 6-12 12-.6-6-.6-6-12-12 11.4-6 11.4-6 12-12z"></path></svg>
       </div>
     </section>
 
@@ -368,9 +352,7 @@
 
         <!-- visual -->
         <div class="about-visual" style="position:relative;min-width:0;">
-          <div aria-hidden="true" style="position:absolute;top:-14px;right:-10px;width:84%;height:90%;border-radius:46% 54% 58% 42%/52% 44% 56% 48%;background:#CDEAE6;"></div>
-          <div aria-hidden="true" style="position:absolute;bottom:-20px;left:-14px;width:44%;height:44%;border-radius:50% 50% 48% 52%/50%;background:#EFE0D2;"></div>
-          <img src="assets/lucia-hero.jpeg" alt="Lucía, fundadora de Epuyen Salud" style="position:relative;display:block;width:100%;height:auto;border-radius:30px;margin:18px 14px 18px 0;box-shadow:0 30px 56px -36px rgba(96,121,133,.8);z-index:2;">
+          <img src="assets/lucia-hero.jpeg" alt="Lucía, fundadora de Epuyen Salud" style="position:relative;display:block;width:100%;height:auto;border-radius:30px;box-shadow:0 30px 56px -36px rgba(96,121,133,.8);z-index:2;">
           <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="#B78BC6" style="position:absolute;top:-14px;left:-4px;z-index:3;"><path d="M12 0c.6 6 .6 6 12 12-11.4 6-11.4 6-12 12-.6-6-.6-6-12-12 11.4-6 11.4-6 12-12z"></path></svg>
         </div>
 
@@ -555,7 +537,7 @@
 const I18N = {
       es:{
         nav1:'Cómo acompañamos', nav2:'Cómo funciona', nav3:'Equipo', nav4:'Preguntas',
-        empezar:'Encontrá el profesional adecuado',
+        empezar:'Reservar mi primera sesión',
         eyebrow:'Salud mental · Orientación · Bienestar', vbadge:'100% online',
         h1a:'Encontrá el acompañamiento ', h1em:'adecuado', h1b:', estés donde estés.',
         sub:'Te ayudamos a ordenar lo que necesitás y a conectarte con profesionales de salud mental, orientación y bienestar.',
@@ -605,10 +587,10 @@ const I18N = {
         modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas',
         bnSub:'Sin bots, sin algoritmos: respuesta humana.',
         abKicker:'sobre nosotros', abTitle:'Nuestra historia',
-        abQm:'epuyén · significado en mapuche', abTag:'desde la Patagonia',
+        abQm:'epuyen · significado en mapuche', abTag:'desde la Patagonia',
         ab1:'Crecí rodeada del mundo de la salud mental. Mis padres tenían una clínica y una granja terapéutica, así que acompañar personas en sus procesos de recuperación fue parte de mi vida desde siempre.',
         ab2:'Con el tiempo me fui dando cuenta de algo: aunque hoy hablamos más sobre salud mental, muchas personas siguen sin saber por dónde empezar cuando sienten que algo no está bien. ¿Qué tipo de profesional busco? ¿Qué clase de ayuda necesito? Son preguntas que parecen simples y no lo son.',
-        ab3:'De ahí nació Epuyén Salud.',
+        ab3:'De ahí nació Epuyen Salud.',
         ab4:'El nombre viene del mapuche y significa «dos que van». Eso lo resume todo. Caminar acompañados. Que nadie tenga que atravesar sus procesos solo.',
         ab5:'Nos inspira la Patagonia argentina — su calma, su fuerza — y desde ahí construimos un espacio que conecta personas con profesionales verificados de salud mental, orientación y bienestar. Sin respuestas automáticas. Sin protocolos fríos. Con criterio humano.',
         ab6:'Porque a veces no necesitás saber exactamente qué te pasa. A veces solo necesitás a alguien que te ayude a dar el primer paso.',
@@ -624,11 +606,12 @@ const I18N = {
         waPsych:'¡Hola! Me gustaría reservar una consulta de psiquiatría en Epuyen.',
         waNutri:'¡Hola! Me gustaría reservar una consulta de nutrición en Epuyen.',
         waJoin:'¡Hola! Soy profesional y me gustaría trabajar con ustedes en Epuyen.',
-        waLead:'¡Hola! Soy {name}, me gustaría reservar una consulta en Epuyen.'
+        waLead:'¡Hola! Soy {name}, me gustaría reservar una consulta en Epuyen.',
+        waSession:'¡Hola! Quiero reservar mi primera sesión en Epuyen.'
       },
       en:{
         nav1:'How we help', nav2:'How it works', nav3:'Our team', nav4:'FAQ',
-        empezar:'Find the right professional',
+        empezar:'Book my first session',
         eyebrow:'Mental health · Guidance · Wellbeing', vbadge:'100% online',
         h1a:'Find the ', h1em:'right', h1b:' support, wherever you are.',
         sub:'We help you make sense of what you need and connect you with mental health, guidance and wellbeing professionals.',
@@ -678,10 +661,10 @@ const I18N = {
         modOnline:'Online', modPres:'In person', modAmbas:'Both',
         bnSub:'No bots, no algorithms: a human response.',
         abKicker:'about us', abTitle:'Our story',
-        abQm:'epuyén · its Mapuche meaning', abTag:'from Patagonia',
+        abQm:'epuyen · its Mapuche meaning', abTag:'from Patagonia',
         ab1:'I grew up surrounded by the world of mental health. My parents ran a clinic and a therapeutic farm, so walking alongside people through their recovery was part of my life from the very beginning.',
         ab2:'Over time I realized something: even though we talk more about mental health today, many people still don\'t know where to start when they feel something isn\'t right. What kind of professional should I look for? What kind of help do I need? They sound like simple questions, but they aren\'t.',
-        ab3:'That\'s how Epuyén Salud was born.',
+        ab3:'That\'s how Epuyen Salud was born.',
         ab4:'The name comes from the Mapuche language and means "two that go together". That says it all. Walking side by side. So that no one has to go through their process alone.',
         ab5:'We are inspired by Argentine Patagonia — its calm, its strength — and from there we built a space that connects people with verified professionals in mental health, guidance and wellbeing. No automated answers. No cold protocols. With human judgment.',
         ab6:'Because sometimes you don\'t need to know exactly what\'s wrong. Sometimes you just need someone to help you take the first step.',
@@ -697,11 +680,12 @@ const I18N = {
         waPsych:'Hi! I would like to book an online psychiatry consultation at Epuyen.',
         waNutri:'Hi! I would like to book a nutrition consultation at Epuyen.',
         waJoin:'Hi! I am a professional and I would like to work with you at Epuyen.',
-        waLead:'Hi! I am {name}, I would like to book a consultation at Epuyen.'
+        waLead:'Hi! I am {name}, I would like to book a consultation at Epuyen.',
+        waSession:'Hi! I would like to book my first session at Epuyen.'
       },
       pt:{
         nav1:'Como acompanhamos', nav2:'Como funciona', nav3:'Equipe', nav4:'Perguntas',
-        empezar:'Encontre o profissional certo',
+        empezar:'Reservar minha primeira sessão',
         eyebrow:'Saúde mental · Orientação · Bem-estar', vbadge:'100% online',
         h1a:'Encontre o acompanhamento ', h1em:'certo', h1b:', onde quer que você esteja.',
         sub:'Ajudamos você a organizar o que precisa e a se conectar com profissionais de saúde mental, orientação e bem-estar.',
@@ -751,10 +735,10 @@ const I18N = {
         modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas',
         bnSub:'Sem bots, sem algoritmos: resposta humana.',
         abKicker:'sobre nós', abTitle:'Nossa história',
-        abQm:'epuyén · significado em mapuche', abTag:'da Patagônia',
+        abQm:'epuyen · significado em mapuche', abTag:'da Patagônia',
         ab1:'Cresci cercada pelo mundo da saúde mental. Meus pais tinham uma clínica e uma fazenda terapêutica, então acompanhar pessoas em seus processos de recuperação fez parte da minha vida desde sempre.',
         ab2:'Com o tempo fui percebendo algo: embora hoje se fale mais sobre saúde mental, muitas pessoas ainda não sabem por onde começar quando sentem que algo não está bem. Que tipo de profissional procuro? Que tipo de ajuda preciso? São perguntas que parecem simples e não são.',
-        ab3:'Foi assim que nasceu a Epuyén Salud.',
+        ab3:'Foi assim que nasceu a Epuyen Salud.',
         ab4:'O nome vem do mapuche e significa «dois que caminham juntos». Isso resume tudo. Caminhar acompanhados. Que ninguém precise atravessar seus processos sozinho.',
         ab5:'Nos inspira a Patagônia argentina — sua calma, sua força — e a partir daí construímos um espaço que conecta pessoas a profissionais verificados de saúde mental, orientação e bem-estar. Sem respostas automáticas. Sem protocolos frios. Com critério humano.',
         ab6:'Porque às vezes você não precisa saber exatamente o que está acontecendo. Às vezes só precisa de alguém que ajude você a dar o primeiro passo.',
@@ -770,7 +754,8 @@ const I18N = {
         waPsych:'Olá! Gostaria de agendar uma consulta de psiquiatria na Epuyen.',
         waNutri:'Olá! Gostaria de agendar uma consulta de nutrição na Epuyen.',
         waJoin:'Olá! Sou profissional e gostaria de trabalhar com vocês na Epuyen.',
-        waLead:'Olá! Sou {name} e gostaria de agendar uma consulta na Epuyen.'
+        waLead:'Olá! Sou {name} e gostaria de agendar uma consulta na Epuyen.',
+        waSession:'Olá! Quero reservar minha primeira sessão na Epuyen.'
       }
     };
 let lang = 'es';

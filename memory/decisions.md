@@ -58,3 +58,15 @@
 - **Razón**: pedido de Lucas — los botones del hero se veían de tamaños distintos (quedan apilados en desktop desde que el CTA se alargó, y con anchos dispares).
 - **Alternativa descartada**: achicar los botones para que entren lado a lado (cambiaba la jerarquía visual sin que nadie lo pidiera).
 - **Revisable**: sí — si se acorta el copy del CTA, pueden volver a convivir en una fila.
+
+## 2026-07-17 — Hero tipográfico centrado, sin ilustración grande
+- **Qué**: se quitó la ilustración "colorada" (`hero-person.png`) y todo su bloque visual (blobs, badge isotipo, tag, sparkle). El hero ahora es título centrado + sub + CTAs lado a lado, con las decos existentes (deco-chat/deco-check) chicas flanqueando el título a su altura y micro-puntos geométricos de color. Referencia visual elegida por Lucas: captura de un sitio ruso de psicología infantil (título centrado con palabras manuscritas y figuras pequeñas a los costados).
+- **Razón**: a Lucía no la convencía la colorada (genérica); la idea del layout centrado con viñetas mini es de Lucas.
+- **Alternativas descartadas**: foto real de Lucía en el hero, escena SVG patagónica «dos que van», imágenes IA (una con texto inglés quemado con typos, otra verde sin texto). Quedaron en `_hero-variants.html` por si se retoman.
+- **Nota**: los SVGs ilustrativos que propuse (montañas, horizonte, corazón) fueron rechazados — las viñetas definitivas las va a crear Lucas. El degradado ambiental coral `amb-a` se eliminó (quedaba como "luz naranja" sin la ilustración).
+- **Revisable**: las viñetas de los flancos sí (Lucas las reemplaza); el layout centrado, solo si Lucía lo pide.
+
+## 2026-07-17 — La marca tampoco lleva acento: "Epuyen", ni ü ni é
+- **Qué**: se corrigieron las 6 apariciones de "Epuyén"/"epuyén" que habían sobrevivido a la limpieza de la ü del 14/7 (claves `ab3` y `abQm` en es/en/pt de index.html).
+- **Razón**: confirmación directa de Lucas ("Epuyen Salud, no le pongas acento"). La grafía oficial de la marca es **Epuyen Salud**, sin diéresis y sin tilde — aunque el pueblo de Chubut se escriba "Epuyén".
+- **Revisable**: no. En textos nuevos escribir siempre "Epuyen".
