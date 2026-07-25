@@ -64,7 +64,7 @@
     .wrap{padding:0 24px !important;}
     .hero{padding:22px 0 30px !important;}
     .hero-deco{display:none !important;}
-    .hero-deco.flor-rama{display:block !important;width:min(88vw,400px) !important;top:12% !important;bottom:auto !important;right:calc(50% - 50vw) !important;}
+    .hero-deco.flor-fondo{display:block !important;height:min(46vh,400px) !important;width:auto !important;top:7% !important;bottom:auto !important;left:calc(50% - 50vw - 46px) !important;right:auto !important;transform:none !important;opacity:.22 !important;}
     .h1{font-size:clamp(38px,7vw,56px) !important;}
     .closing-grid{grid-template-columns:1fr !important;gap:30px !important;}
     .steps{grid-template-columns:1fr !important;}
@@ -150,7 +150,7 @@
     <!-- ============ HERO ============ -->
     <section class="hero" style="position:relative;padding:46px 0 60px;">
       <!-- deco mini flotantes flanqueando el título (viñetas SVG definitivas: las hace Lucas) -->
-      <img class="hero-deco flor-rama" src="assets/floripondio-nueva.png" alt="" aria-hidden="true" style="position:absolute;top:6%;right:calc(50% - 50vw - 8px);width:clamp(480px,44vw,660px);height:auto;z-index:0;opacity:.9;animation:floaty 6.5s ease-in-out infinite;">
+      <img class="hero-deco flor-fondo" src="assets/epuyen-fondo-hero.png?v=2" alt="" aria-hidden="true" style="position:absolute;top:46%;left:calc(50% - 50vw + 20px);transform:translateY(-50%);width:auto;height:clamp(420px,56vh,620px);z-index:0;opacity:.95;filter:none;pointer-events:none;animation:floaty 7.5s ease-in-out infinite;">
       <!-- micro acentos geométricos -->
       <span class="hero-deco" aria-hidden="true" style="position:absolute;top:15%;left:7%;width:14px;height:14px;border-radius:50%;border:3px solid #F3A28F;"></span>
       <span class="hero-deco" aria-hidden="true" style="position:absolute;bottom:24%;left:11%;width:9px;height:9px;border-radius:50%;background:#4f928d;opacity:.55;"></span>
@@ -183,22 +183,24 @@
     <!-- ============ STAT BANNER ============ -->
     <section class="stat-banner" style="position:relative;margin:38px 0 12px;border-radius:30px;overflow:hidden;background:#7E9B72;padding:42px 46px;box-shadow:0 30px 60px -36px rgba(126,155,114,.9);">
       <svg aria-hidden="true" viewBox="0 0 1200 220" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.5;"><path d="M-20,150 C140,80 260,210 430,150 C600,90 700,210 870,150 C1010,100 1120,180 1240,140" fill="none" stroke="#EDF3E9" stroke-width="20" stroke-linecap="round" opacity=".45"></path></svg>
-      <div style="position:relative;text-align:center;max-width:680px;margin:0 auto 26px;">
-        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:30px;line-height:1.18;color:#fff;margin:0;"><span data-i18n="bnHead"></span></h2>
-        <p style="font-family:'Dancing Script',cursive;font-weight:600;font-size:24px;color:#EDF3E9;margin:10px 0 0;"><span data-i18n="bnSub"></span></p>
+      <div style="position:relative;text-align:center;max-width:680px;margin:0 auto 28px;">
+        <p style="font-family:'Dancing Script',cursive;font-weight:600;font-size:30px;color:#fff;margin:0;"><span data-i18n="bnSub"></span></p>
       </div>
-      <div class="stat-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;">
+      <div class="stat-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start;max-width:840px;margin:0 auto;">
         <div style="text-align:center;">
-          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn1n"></span></span></div>
-          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn1l"></span></div>
-        </div>
-        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.25);">
-          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn2n"></span></span></div>
-          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn2l"></span></div>
+          <div aria-hidden="true" style="font-size:30px;line-height:1;">🤝</div>
+          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf1t"></span></div>
+          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf1d"></span></p>
         </div>
         <div style="text-align:center;">
-          <div style="display:flex;align-items:center;justify-content:center;gap:9px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#EDF3E9"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg><span style="font-family:'Newsreader',serif;font-weight:600;font-size:44px;color:#fff;line-height:1;"><span data-i18n="bn3n"></span></span></div>
-          <div style="font-size:14.5px;color:#EAF1E5;margin-top:9px;font-weight:500;"><span data-i18n="bn3l"></span></div>
+          <div aria-hidden="true" style="font-size:30px;line-height:1;">🌍</div>
+          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf2t"></span></div>
+          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf2d"></span></p>
+        </div>
+        <div style="text-align:center;">
+          <div aria-hidden="true" style="font-size:30px;line-height:1;">⏱️</div>
+          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf3t"></span></div>
+          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf3d"></span></p>
         </div>
       </div>
     </section>
@@ -330,7 +332,7 @@
             <span style="width:46px;height:46px;border-radius:50%;background:#BFE5E3;border:3px solid #fff;margin-left:-16px;"></span>
             <span style="width:46px;height:46px;border-radius:50%;background:#B78BC6;border:3px solid #fff;margin-left:-16px;"></span>
             <span style="width:46px;height:46px;border-radius:50%;background:#7E9B72;border:3px solid #fff;margin-left:-16px;"></span>
-            <span style="width:46px;height:46px;border-radius:50%;background:#607985;border:3px solid #fff;margin-left:-16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;">+34</span>
+            <span style="width:46px;height:46px;border-radius:50%;background:#607985;border:3px solid #fff;margin-left:-16px;"></span>
           </div>
         </div>
         <div style="flex:1;min-width:200px;">
@@ -432,8 +434,8 @@
               <span style="width:54px;height:54px;border-radius:50%;background:#7E9B72;border:3px solid #4a5b62;margin-left:-18px;"></span>
             </div>
             <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px 22px;text-align:center;">
-              <div style="font-family:'Newsreader',serif;font-weight:600;font-size:34px;color:#fff;line-height:1;">+34</div>
-              <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:6px;"><span data-i18n="trb1"></span> · <span data-i18n="trb2"></span> · <span data-i18n="trb3"></span></div>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#BFE5E3" aria-hidden="true" style="display:block;margin:0 auto;"><path d="M12 2c.5 5 .5 5 10 10-9.5 5-9.5 5-10 10-.5-5-.5-5-10-10 9.5-5 9.5-5 10-10z"></path></svg>
+              <div style="font-size:13.5px;color:rgba(255,255,255,.82);margin-top:8px;line-height:1.4;"><span data-i18n="trb1"></span> · <span data-i18n="trb2"></span> · <span data-i18n="trb3"></span></div>
             </div>
           </div>
         </div>
@@ -546,10 +548,9 @@ const I18N = {
         sub:'Te ayudamos a ordenar lo que necesitás y a conectarte con profesionales de salud mental, orientación y bienestar.',
         cta1:'Encontrá el profesional adecuado', cta2:'Hablar por WhatsApp',
         heroTag1:'en tu idioma', heroTag2:'por videollamada',
-        bnHead:'Más de 34 profesionales online, listos para acompañarte',
-        bn1n:'+34', bn1l:'profesionales verificados',
-        bn2n:'100%', bn2l:'online · en español e inglés',
-        bn3n:'24–48 h', bn3l:'para tu primera respuesta',
+        bf1t:'Atención humana', bf1d:'Sin bots ni respuestas automáticas.',
+        bf2t:'Español e inglés', bf2d:'Profesionales que te acompañan en ambos idiomas.',
+        bf3t:'24–48 h', bf3d:'Tiempo estimado para tu primera respuesta.',
         qKicker:'elegí por dónde empezar', qTitle:'¿Qué estás buscando?',
         qSub:'Y si no estás seguro, te ayudamos a ordenarlo con vos.',
         s1t:'Psicoterapia individual', s1d:'Un espacio propio para entenderte y estar mejor.',
@@ -620,10 +621,9 @@ const I18N = {
         sub:'We help you make sense of what you need and connect you with mental health, guidance and wellbeing professionals.',
         cta1:'Find the right professional', cta2:'Chat on WhatsApp',
         heroTag1:'in your language', heroTag2:'by video call',
-        bnHead:'Over 34 online professionals, ready to support you',
-        bn1n:'+34', bn1l:'verified professionals',
-        bn2n:'100%', bn2l:'online · in Spanish & English',
-        bn3n:'24–48 h', bn3l:'to your first reply',
+        bf1t:'Human support', bf1d:'No bots, no automated replies.',
+        bf2t:'Spanish & English', bf2d:'Professionals who support you in both languages.',
+        bf3t:'24–48 h', bf3d:'Estimated time to your first reply.',
         qKicker:'choose where to start', qTitle:'What are you looking for?',
         qSub:'And if you are not sure, we will help you sort it out with you.',
         s1t:'Individual therapy', s1d:'A space of your own to understand yourself and feel better.',
@@ -694,10 +694,9 @@ const I18N = {
         sub:'Ajudamos você a organizar o que precisa e a se conectar com profissionais de saúde mental, orientação e bem-estar.',
         cta1:'Encontre o profissional certo', cta2:'Falar no WhatsApp',
         heroTag1:'no seu idioma', heroTag2:'por videochamada',
-        bnHead:'Mais de 34 profissionais online, prontos para acompanhar você',
-        bn1n:'+34', bn1l:'profissionais verificados',
-        bn2n:'100%', bn2l:'online · em espanhol e inglês',
-        bn3n:'24–48 h', bn3l:'para a primeira resposta',
+        bf1t:'Atendimento humano', bf1d:'Sem bots nem respostas automáticas.',
+        bf2t:'Espanhol e inglês', bf2d:'Profissionais que acompanham você nos dois idiomas.',
+        bf3t:'24–48 h', bf3d:'Tempo estimado para a sua primeira resposta.',
         qKicker:'escolha por onde começar', qTitle:'O que você está buscando?',
         qSub:'E se não tiver certeza, ajudamos você a organizar junto.',
         s1t:'Psicoterapia individual', s1d:'Um espaço só seu para se entender e ficar melhor.',
