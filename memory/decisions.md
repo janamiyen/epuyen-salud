@@ -70,3 +70,18 @@
 - **Qué**: se corrigieron las 6 apariciones de "Epuyén"/"epuyén" que habían sobrevivido a la limpieza de la ü del 14/7 (claves `ab3` y `abQm` en es/en/pt de index.html).
 - **Razón**: confirmación directa de Lucas ("Epuyen Salud, no le pongas acento"). La grafía oficial de la marca es **Epuyen Salud**, sin diéresis y sin tilde — aunque el pueblo de Chubut se escriba "Epuyén".
 - **Revisable**: no. En textos nuevos escribir siempre "Epuyen".
+
+## 2026-08-13 — Enlaces del menú (NAV) navegan a secciones de la página
+- **Qué**: Se agregaron atributos de ancla (`href="#acompanamos"`, `#como-funciona`, `#historia`) a los ítems del menú de navegación (desktop, móvil y footer) y sus respectivos IDs en los `<section>` correspondientes.
+- **Razón**: Pedido explícito del usuario para que "Cómo acompañamos", "Cómo funciona" y "Equipo" dirijan directamente a sus respectivos apartados de la landing page.
+- **Revisable**: Sí. Si estas secciones pasan a ser páginas separadas, se actualizarían los href.
+
+## 2026-08-13 — Rediseño del banner "Sin bots"
+- **Qué**: Se modificó la paleta de colores del banner pasando de fondo oscuro (verde) a un fondo crema claro (`#FDFBF7`) y un estilo de tarjeta, reemplazando además los emojis nativos por iconos vectoriales SVG con colores institucionales, y separando el título en dos claves I18N para usar tipografías mixtas (serif / cursive).
+- **Razón**: Lucía pidió que los iconos perdieran el aspecto "WhatsApp" y tuvieran más identidad de marca, y que todo el banner adoptara un esquema de color más suave y elegante, acorde al mockup provisto.
+- **Revisable**: Sí, se pueden ajustar los colores de fondo de las ondas SVG y cambiar los SVG elegidos (handshake, globo, reloj) si se envían los diseños finales.
+
+## 2026-08-13 — Eliminación del subrayado en el Hero
+- **Qué**: Se quitó el subrayado ondulado coral (`text-decoration: underline wavy`) de la palabra "adecuado" en el título principal de la página, dejándola únicamente en cursiva (fuente Dancing Script).
+- **Razón**: Pedido estético directo del usuario para limpiar visualmente el título.
+- **Revisable**: Sí, se puede volver a habilitar mediante CSS si se quiere volver a destacar la palabra gráficamente.

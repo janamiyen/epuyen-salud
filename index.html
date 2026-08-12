@@ -64,7 +64,7 @@
     .wrap{padding:0 24px !important;}
     .hero{padding:22px 0 30px !important;}
     .hero-deco{display:none !important;}
-    .hero-deco.flor-fondo{display:block !important;height:min(46vh,400px) !important;width:auto !important;top:7% !important;bottom:auto !important;left:calc(50% - 50vw - 46px) !important;right:auto !important;transform:none !important;opacity:.45 !important;}
+    .hero-deco.flor-fondo{display:block !important;height:320px !important;width:auto !important;top:50% !important;bottom:auto !important;left:-20px !important;right:auto !important;transform:translateY(-50%) !important;opacity:.45 !important;}
     .h1{font-size:clamp(38px,7vw,56px) !important;}
     .closing-grid{grid-template-columns:1fr !important;gap:30px !important;}
     .steps{grid-template-columns:1fr !important;}
@@ -113,7 +113,10 @@
     <header class="nav" style="display:flex;align-items:center;justify-content:space-between;padding:26px 0 14px;">
       <img src="assets/logo.png" alt="epuyen salud" style="height:48px;width:auto;display:block;">
       <nav class="nav-links" style="display:flex;gap:30px;font-size:15px;color:#5b6a70;font-weight:500;">
-        <span><span data-i18n="nav1"></span></span><span><span data-i18n="nav2"></span></span><span><span data-i18n="nav3"></span></span><span><span data-i18n="nav4"></span></span>
+        <a href="#acompanamos" style="color:inherit;text-decoration:none;"><span data-i18n="nav1"></span></a>
+        <a href="#como-funciona" style="color:inherit;text-decoration:none;"><span data-i18n="nav2"></span></a>
+        <a href="#historia" style="color:inherit;text-decoration:none;"><span data-i18n="nav3"></span></a>
+        <span><span data-i18n="nav4"></span></span>
       </nav>
       <div style="display:flex;align-items:center;gap:14px;">
         <div data-lang-root="" style="position:relative;">
@@ -140,17 +143,17 @@
 
     <!-- mobile menu -->
     <div id="mobileMenu" class="mobile-menu" hidden>
-      <a class="mm-link" data-i18n="nav1" onclick="closeMenu()"></a>
-      <a class="mm-link" data-i18n="nav2" onclick="closeMenu()"></a>
-      <a class="mm-link" data-i18n="nav3" onclick="closeMenu()"></a>
+      <a class="mm-link" href="#acompanamos" data-i18n="nav1" onclick="closeMenu()"></a>
+      <a class="mm-link" href="#como-funciona" data-i18n="nav2" onclick="closeMenu()"></a>
+      <a class="mm-link" href="#historia" data-i18n="nav3" onclick="closeMenu()"></a>
       <a class="mm-link" data-i18n="nav4" onclick="closeMenu()"></a>
       <a class="mm-cta" data-i18n="empezar" data-wa="waSession" target="_blank" rel="noopener" onclick="closeMenu()"></a>
     </div>
 
     <!-- ============ HERO ============ -->
     <section class="hero" style="position:relative;padding:46px 0 60px;">
-      <!-- deco mini flotantes flanqueando el título (viñetas SVG definitivas: las hace Lucas) -->
-      <img class="hero-deco flor-fondo" src="assets/epuyen-fondo-hero.png?v=2" alt="" aria-hidden="true" style="position:absolute;top:46%;left:calc(50% - 50vw + 20px);transform:translateY(-50%);width:auto;height:clamp(420px,56vh,620px);z-index:0;opacity:.45;filter:none;pointer-events:none;animation:floaty 7.5s ease-in-out infinite;">
+      <!-- deco mini flotantes flanqueando el título -->
+      <img class="hero-deco flor-fondo" src="assets/epuyen-fondo-hero.png?v=2" alt="" aria-hidden="true" style="position:absolute;top:auto;bottom:-100px;left:calc(50% - 50vw - 40px);transform:none;width:auto;height:640px;z-index:0;opacity:0.4;filter:none;pointer-events:none;animation:floaty 7.5s ease-in-out infinite;-webkit-mask-image:linear-gradient(to right, black 40%, transparent 100%);mask-image:linear-gradient(to right, black 40%, transparent 100%);">
       <!-- micro acentos geométricos -->
       <span class="hero-deco" aria-hidden="true" style="position:absolute;top:15%;left:7%;width:14px;height:14px;border-radius:50%;border:3px solid #F3A28F;"></span>
       <span class="hero-deco" aria-hidden="true" style="position:absolute;bottom:24%;left:11%;width:9px;height:9px;border-radius:50%;background:#4f928d;opacity:.55;"></span>
@@ -160,14 +163,14 @@
       <div style="position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto;">
         <div style="display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;">
           <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;color:#E97878;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#E97878;"></span><span data-i18n="eyebrow"></span>
+            <span data-i18n="eyebrow"></span>
           </span>
           <span style="display:inline-flex;align-items:center;gap:7px;background:#EAF6F4;color:#4f928d;font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 12px;white-space:nowrap;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="13" height="11" rx="2.5"></rect><path d="M15.5 10l5-2.5v9l-5-2.5z"></path></svg><span data-i18n="vbadge"></span>
           </span>
         </div>
 
-        <h1 class="h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:64px;line-height:1.04;color:#4a5b62;letter-spacing:-.015em;margin:22px 0 0;"><span data-i18n="h1a"></span><span style="font-family:'Dancing Script',cursive;font-weight:600;color:#E97878;font-size:1.18em;text-decoration:underline wavy #F3A28F;text-decoration-thickness:2.5px;text-underline-offset:7px;padding:0 .08em;"><span data-i18n="h1em"></span></span><span data-i18n="h1b"></span></h1>
+        <h1 class="h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:64px;line-height:1.04;color:#4a5b62;letter-spacing:-.015em;margin:22px 0 0;"><span data-i18n="h1a"></span><span style="font-family:'Dancing Script',cursive;font-weight:600;color:#E97878;font-size:1.18em;padding:0 .08em;"><span data-i18n="h1em"></span></span><span data-i18n="h1b"></span></h1>
 
         <p style="font-size:18.5px;line-height:1.62;color:#5b696f;max-width:30em;margin:24px auto 0;"><span data-i18n="sub"></span></p>
 
@@ -180,33 +183,68 @@
       </div>
     </section>
 
-    <!-- ============ STAT BANNER ============ -->
-    <section class="stat-banner" style="position:relative;margin:38px 0 12px;border-radius:30px;overflow:hidden;background:#7E9B72;padding:42px 46px;box-shadow:0 30px 60px -36px rgba(126,155,114,.9);">
-      <svg aria-hidden="true" viewBox="0 0 1200 220" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.5;"><path d="M-20,150 C140,80 260,210 430,150 C600,90 700,210 870,150 C1010,100 1120,180 1240,140" fill="none" stroke="#EDF3E9" stroke-width="20" stroke-linecap="round" opacity=".45"></path></svg>
-      <div style="position:relative;text-align:center;max-width:680px;margin:0 auto 28px;">
-        <p style="font-family:'Dancing Script',cursive;font-weight:600;font-size:30px;color:#fff;margin:0;"><span data-i18n="bnSub"></span></p>
-      </div>
-      <div class="stat-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start;max-width:840px;margin:0 auto;">
-        <div style="text-align:center;">
-          <div aria-hidden="true" style="font-size:30px;line-height:1;">🤝</div>
-          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf1t"></span></div>
-          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf1d"></span></p>
+      <!-- ============ STAT BANNER ============ -->
+      <section class="stat-banner" style="position:relative;margin:38px 0 12px;border-radius:30px;overflow:hidden;background:linear-gradient(135deg, #FAFCF8 0%, #E9F0E5 100%);padding:60px 46px;box-shadow:0 30px 60px -20px rgba(126,155,114,.15);">
+        
+        <!-- Olas orgánicas (izq a der) -->
+        <svg aria-hidden="true" viewBox="0 0 1200 400" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;width:100%;height:320px;z-index:0;pointer-events:none;">
+          <path d="M0,150 C250,350 650,220 1200,280 L1200,400 L0,400 Z" fill="#DDE8D8" opacity="0.6"></path>
+          <path d="M0,220 C300,380 750,280 1200,350 L1200,400 L0,400 Z" fill="#D1E0CA" opacity="0.8"></path>
+        </svg>
+
+        <div style="position:relative;text-align:center;max-width:680px;margin:0 auto 40px;z-index:1;">
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#5e7350;margin:0;line-height:1.2;letter-spacing:-.01em;">
+            <span data-i18n="bnSub1"></span><br>
+            <span style="font-family:'Dancing Script',cursive;font-size:38px;color:#7E9B72;font-weight:600;" data-i18n="bnSub2"></span>
+          </h2>
         </div>
-        <div style="text-align:center;">
-          <div aria-hidden="true" style="font-size:30px;line-height:1;">🌍</div>
-          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf2t"></span></div>
-          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf2d"></span></p>
+        
+        <div class="stat-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;align-items:start;max-width:840px;margin:0 auto;z-index:1;">
+          
+          <!-- Item 1 -->
+          <div style="text-align:center;">
+            <div style="display:flex;justify-content:center;align-items:center;width:64px;height:64px;border-radius:50%;background:rgba(126,155,114,0.12);color:#7E9B72;margin:0 auto;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+                <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25"></path>
+                <path d="M12.5 15.5l2 2"></path>
+                <path d="M15 13l2 2"></path>
+              </svg>
+            </div>
+            <div style="width:34px;height:1px;background:rgba(126,155,114,.3);margin:14px auto 0;"></div>
+            <div style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;color:#5e7350;margin-top:16px;"><span data-i18n="bf1t"></span></div>
+            <p style="font-size:14.5px;color:#7c878c;margin:6px auto 0;line-height:1.55;max-width:24ch;"><span data-i18n="bf1d"></span></p>
+          </div>
+
+          <!-- Item 2 -->
+          <div style="text-align:center;">
+            <div style="display:flex;justify-content:center;align-items:center;width:64px;height:64px;border-radius:50%;background:rgba(126,155,114,0.12);color:#7E9B72;margin:0 auto;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8929 13.3929L19.7582 12.2582C19.5872 12.0872 19.4449 11.8897 19.3367 11.6734L18.2567 9.5133C18.1304 9.26078 17.7938 9.20616 17.5942 9.4058C17.3818 9.61824 17.0708 9.69881 16.782 9.61627L15.5091 9.25259C15.0257 9.11447 14.5239 9.40424 14.402 9.892C14.3108 10.2566 14.4587 10.6392 14.7715 10.8476L15.3582 11.2388C15.9489 11.6326 16.0316 12.4684 15.5297 12.9703L15.3295 13.1705C15.1185 13.3815 15 13.6676 15 13.966V14.3768C15 14.7846 14.8892 15.1847 14.6794 15.5344L13.3647 17.7254C12.9834 18.3611 12.2964 18.75 11.5552 18.75C10.9724 18.75 10.5 18.2776 10.5 17.6948V16.5233C10.5 15.6033 9.93986 14.7759 9.08563 14.4343L8.43149 14.1726C7.44975 13.7799 6.8739 12.7566 7.04773 11.7136L7.05477 11.6714C7.10117 11.393 7.19956 11.1257 7.3448 10.8837L7.43421 10.7347C7.92343 9.91928 8.87241 9.49948 9.80483 9.68597L10.9827 9.92153C11.5574 10.0365 12.124 9.69096 12.285 9.12744L12.4935 8.39774C12.6422 7.87721 12.3991 7.32456 11.9149 7.08245L11.25 6.75L11.159 6.84099C10.7371 7.26295 10.1648 7.5 9.56802 7.5H9.38709C9.13924 7.5 8.90095 7.59905 8.7257 7.7743C8.44222 8.05778 8.00814 8.12907 7.64958 7.94979C7.16433 7.70716 6.98833 7.10278 7.26746 6.63757L8.67936 4.2844C8.82024 4.04961 8.91649 3.79207 8.96453 3.52474M20.8929 13.3929C20.9634 12.9389 21 12.4737 21 12C21 7.02944 16.9706 3 12 3C10.9348 3 9.91287 3.18504 8.96453 3.52474M20.8929 13.3929C20.2234 17.702 16.4968 21 12 21C7.02944 21 3 16.9706 3 12C3 8.09461 5.48749 4.77021 8.96453 3.52474"/>
+              </svg>
+            </div>
+            <div style="width:34px;height:1px;background:rgba(126,155,114,.3);margin:14px auto 0;"></div>
+            <div style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;color:#5e7350;margin-top:16px;"><span data-i18n="bf2t"></span></div>
+            <p style="font-size:14.5px;color:#7c878c;margin:6px auto 0;line-height:1.55;max-width:24ch;"><span data-i18n="bf2d"></span></p>
+          </div>
+
+          <!-- Item 3 -->
+          <div style="text-align:center;">
+            <div style="display:flex;justify-content:center;align-items:center;width:64px;height:64px;border-radius:50%;background:rgba(126,155,114,0.12);color:#7E9B72;margin:0 auto;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div style="width:34px;height:1px;background:rgba(126,155,114,.3);margin:14px auto 0;"></div>
+            <div style="font-family:'Newsreader',serif;font-weight:500;font-size:20px;color:#5e7350;margin-top:16px;"><span data-i18n="bf3t"></span></div>
+            <p style="font-size:14.5px;color:#7c878c;margin:6px auto 0;line-height:1.55;max-width:24ch;"><span data-i18n="bf3d"></span></p>
+          </div>
+
         </div>
-        <div style="text-align:center;">
-          <div aria-hidden="true" style="font-size:30px;line-height:1;">⏱️</div>
-          <div style="font-family:'Newsreader',serif;font-weight:600;font-size:21px;color:#fff;margin-top:12px;"><span data-i18n="bf3t"></span></div>
-          <p style="font-size:13.5px;color:#EAF1E5;margin:6px auto 0;line-height:1.5;max-width:23ch;"><span data-i18n="bf3d"></span></p>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ============ ¿QUÉ ESTÁS BUSCANDO? ============ -->
-    <section style="position:relative;padding:64px 0 8px;">
+    <section id="acompanamos" style="position:relative;padding:64px 0 8px;">
       <div style="text-align:center;max-width:640px;margin:0 auto;">
         <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:27px;color:#E97878;"><span data-i18n="qKicker"></span></span>
         <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;color:#4a5b62;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="qTitle"></span></h2>
@@ -298,7 +336,7 @@
     </section>
 
     <!-- ============ CÓMO FUNCIONA ============ -->
-    <section style="position:relative;padding:66px 0 6px;">
+    <section id="como-funciona" style="position:relative;padding:66px 0 6px;">
       <div style="text-align:center;max-width:640px;margin:0 auto;">
         <span style="font-family:'Dancing Script',cursive;font-weight:600;font-size:27px;color:#7E9B72;"><span data-i18n="hKicker"></span></span>
         <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;color:#4a5b62;margin:4px 0 0;letter-spacing:-.01em;"><span data-i18n="hTitle"></span></h2>
@@ -390,7 +428,7 @@
         <div style="background:#fff;border-radius:22px;padding:24px;box-shadow:0 30px 56px -36px rgba(96,121,133,.8);">
           <form id="leadForm" onsubmit="return submitLead(event)" style="display:flex;flex-direction:column;gap:12px;">
             <input name="Nombre" required autocomplete="name" placeholder="" data-i18n-ph="clName" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
-            <input name="WhatsApp" type="tel" required autocomplete="tel" placeholder="" data-i18n-ph="clPhone" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
+            <input name="Mail" type="email" required autocomplete="email" placeholder="" data-i18n-ph="clEmail" style="border:1.5px solid rgba(96,121,133,.18);border-radius:13px;padding:14px 16px;font-size:15px;font-family:inherit;color:#3F4A4F;background:#FBF8F3;outline:none;">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
             <button id="leadBtn" type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#E97878;color:#fff;font-weight:700;font-size:16px;padding:15px;border-radius:13px;border:0;font-family:inherit;box-shadow:0 5px 0 #cf6262;cursor:pointer;margin-top:2px;"><span data-i18n="clBtn"></span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
@@ -452,7 +490,10 @@
         <div>
           <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9c9183;font-weight:700;"><span data-i18n="ftMap"></span></div>
           <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:14px;color:#607985;">
-            <span><span data-i18n="nav1"></span></span><span><span data-i18n="nav2"></span></span><span><span data-i18n="nav3"></span></span><span><span data-i18n="nav4"></span></span>
+            <a href="#acompanamos" style="color:inherit;text-decoration:none;"><span data-i18n="nav1"></span></a>
+            <a href="#como-funciona" style="color:inherit;text-decoration:none;"><span data-i18n="nav2"></span></a>
+            <a href="#historia" style="color:inherit;text-decoration:none;"><span data-i18n="nav3"></span></a>
+            <span><span data-i18n="nav4"></span></span>
           </div>
         </div>
         <div>
@@ -541,7 +582,7 @@
 <script>
 const I18N = {
       es:{
-        nav1:'Cómo acompañamos', nav2:'Cómo funciona', nav3:'Equipo', nav4:'Preguntas',
+        nav1:'Servicios', nav2:'Cómo funciona', nav3:'Equipo', nav4:'Preguntas',
         empezar:'Reservar mi primera sesión',
         eyebrow:'Salud mental · Orientación · Bienestar', vbadge:'100% online',
         h1a:'Encontrá el acompañamiento ', h1em:'adecuado', h1b:', estés donde estés.',
@@ -557,7 +598,7 @@ const I18N = {
         s2t:'Terapia de pareja', s2d:'Acompañamiento para reconectar y resolver juntos.',
         s3t:'Test vocacional', s3d:'Claridad para decidir tu próximo paso de estudio o carrera.',
         s4t:'Orientación emocional', s4d:'Una primera escucha para ordenar lo que sentís.',
-        s5t:'Vivo en el exterior', s5d:'Atención en español o inglés, estés donde estés, sin perder cercanía.',
+        s5t:'Atención en español o inglés', s5d:'estés donde estés, sin perder cercanía.',
         s6t:'No sé qué necesito', s6d:'Contanos y te ayudamos a encontrar el camino.',
         s6cta:'Empezar la orientación guiada',
         qtag1:'a tu ritmo', qtag3:'en tu idioma',
@@ -570,8 +611,8 @@ const I18N = {
         trb1:'Psicología', trb2:'Orientación', trb3:'Bienestar',
         clHi1:'Empezá hoy', clHi2:'sin saber aún', clHi3:'qué necesitás',
         clSub:'Dejanos tus datos y te escribimos para acompañarte en el primer paso. Sin compromiso.',
-        clName:'Tu nombre', clPhone:'WhatsApp', clBtn:'Encontrá el profesional adecuado', clNote:'Te respondemos en 24–48 h',
-        clSending:'Enviando…', clOk:'¡Listo! Recibimos tus datos.', clOkD:'Te escribimos por WhatsApp en 24–48 h.', clErr:'No se pudo enviar. Probá de nuevo en un rato.',
+        clName:'Tu nombre', clEmail:'Mail', clBtn:'Encontrá el profesional adecuado', clNote:'Te respondemos en 24–48 h',
+        clSending:'Enviando…', clOk:'¡Listo! Recibimos tus datos.', clOkD:'Te escribimos al mail en 24–48 h.', clErr:'No se pudo enviar. Probá de nuevo en un rato.',
         ftTagline:'Acompañamiento en salud mental, orientación y bienestar. 100% online, en español e inglés, estés donde estés.',
         ftMap:'Mapa', ftContact:'Contacto',
         pxTitle:'También contamos con psiquiatría y nutrición online', pxSub:'Profesionales verificados, integrados a tu proceso de bienestar.',
@@ -589,7 +630,7 @@ const I18N = {
         fMsg:'Mensaje breve', fSubmit:'Enviar postulación', fThanks:'¡Gracias! Recibimos tu postulación y te contactaremos pronto.',
         fChoose:'Elegí una opción', optPsico:'Psicología', optPareja:'Terapia de pareja', optVocac:'Orientación vocacional', optBien:'Bienestar', optOtro:'Otro',
         modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas',
-        bnSub:'Sin bots, sin algoritmos: respuesta humana.',
+        bnSub1:'Sin bots, sin algoritmos:', bnSub2:'respuesta humana.',
         abKicker:'sobre nosotros', abTitle:'Nuestra historia',
         abQm:'epuyen · significado en mapuche', abTag:'desde la Patagonia',
         ab1:'Crecí rodeada del mundo de la salud mental. Mis padres tenían una clínica y una granja terapéutica, así que acompañar personas en sus procesos de recuperación fue parte de mi vida desde siempre.',
@@ -614,7 +655,7 @@ const I18N = {
         waSession:'¡Hola! Quiero reservar mi primera sesión en Epuyen.'
       },
       en:{
-        nav1:'How we help', nav2:'How it works', nav3:'Our team', nav4:'FAQ',
+        nav1:'Services', nav2:'How it works', nav3:'Our team', nav4:'FAQ',
         empezar:'Book my first session',
         eyebrow:'Mental health · Guidance · Wellbeing', vbadge:'100% online',
         h1a:'Find the ', h1em:'right', h1b:' support, wherever you are.',
@@ -630,7 +671,7 @@ const I18N = {
         s2t:'Couples therapy', s2d:'Support to reconnect and work things out together.',
         s3t:'Vocational test', s3d:'Clarity to decide your next step in study or career.',
         s4t:'Emotional guidance', s4d:'A first listening to make sense of how you feel.',
-        s5t:'Living abroad', s5d:'Care in Spanish or English, wherever you are, without losing closeness.',
+        s5t:'Care in Spanish or English', s5d:'wherever you are, without losing closeness.',
         s6t:'I am not sure yet', s6d:'Tell us and we will help you find the way.',
         s6cta:'Start the guided orientation',
         qtag1:'at your pace', qtag3:'in your language',
@@ -643,8 +684,8 @@ const I18N = {
         trb1:'Psychology', trb2:'Guidance', trb3:'Wellbeing',
         clHi1:'Start today', clHi2:'even unsure', clHi3:'of what you need',
         clSub:'Leave your details and we will reach out to guide your first step. No commitment.',
-        clName:'Your name', clPhone:'WhatsApp', clBtn:'Find the right professional', clNote:'We reply within 24–48 h',
-        clSending:'Sending…', clOk:'Done! We got your details.', clOkD:'We will text you on WhatsApp within 24–48 h.', clErr:'Something went wrong. Please try again in a bit.',
+        clName:'Your name', clEmail:'Email', clBtn:'Find the right professional', clNote:'We reply within 24–48 h',
+        clSending:'Sending…', clOk:'Done! We got your details.', clOkD:'We will email you within 24–48 h.', clErr:'Something went wrong. Please try again in a bit.',
         ftTagline:'Support in mental health, guidance and wellbeing. 100% online, in Spanish and English, wherever you are.',
         ftMap:'Sitemap', ftContact:'Contact',
         pxTitle:'We also offer online psychiatry and nutrition', pxSub:'Verified professionals, integrated into your wellbeing journey.',
@@ -662,7 +703,7 @@ const I18N = {
         fMsg:'Short message', fSubmit:'Send application', fThanks:'Thank you! We received your application and will be in touch soon.',
         fChoose:'Choose an option', optPsico:'Psychology', optPareja:'Couples therapy', optVocac:'Vocational guidance', optBien:'Wellbeing', optOtro:'Other',
         modOnline:'Online', modPres:'In person', modAmbas:'Both',
-        bnSub:'No bots, no algorithms: a human response.',
+        bnSub1:'No bots, no algorithms:', bnSub2:'a human response.',
         abKicker:'about us', abTitle:'Our story',
         abQm:'epuyen · its Mapuche meaning', abTag:'from Patagonia',
         ab1:'I grew up surrounded by the world of mental health. My parents ran a clinic and a therapeutic farm, so walking alongside people through their recovery was part of my life from the very beginning.',
@@ -687,7 +728,7 @@ const I18N = {
         waSession:'Hi! I would like to book my first session at Epuyen.'
       },
       pt:{
-        nav1:'Como acompanhamos', nav2:'Como funciona', nav3:'Equipe', nav4:'Perguntas',
+        nav1:'Serviços', nav2:'Como funciona', nav3:'Equipe', nav4:'Perguntas',
         empezar:'Reservar minha primeira sessão',
         eyebrow:'Saúde mental · Orientação · Bem-estar', vbadge:'100% online',
         h1a:'Encontre o acompanhamento ', h1em:'certo', h1b:', onde quer que você esteja.',
@@ -703,7 +744,7 @@ const I18N = {
         s2t:'Terapia de casal', s2d:'Acompanhamento para reconectar e resolver juntos.',
         s3t:'Teste vocacional', s3d:'Clareza para decidir o próximo passo de estudo ou carreira.',
         s4t:'Orientação emocional', s4d:'Uma primeira escuta para organizar o que você sente.',
-        s5t:'Moro no exterior', s5d:'Atendimento em espanhol ou inglês, onde estiver, com proximidade.',
+        s5t:'Atendimento em espanhol ou inglês', s5d:'onde estiver, com proximidade.',
         s6t:'Não sei do que preciso', s6d:'Conte para a gente e ajudamos a achar o caminho.',
         s6cta:'Começar a orientação guiada',
         qtag1:'no seu ritmo', qtag3:'no seu idioma',
@@ -716,8 +757,8 @@ const I18N = {
         trb1:'Psicologia', trb2:'Orientação', trb3:'Bem-estar',
         clHi1:'Comece hoje', clHi2:'mesmo sem saber', clHi3:'do que precisa',
         clSub:'Deixe seus dados e a gente escreve para acompanhar você no primeiro passo. Sem compromisso.',
-        clName:'Seu nome', clPhone:'WhatsApp', clBtn:'Encontre o profissional certo', clNote:'Respondemos em 24–48 h',
-        clSending:'Enviando…', clOk:'Pronto! Recebemos seus dados.', clOkD:'Escrevemos para você no WhatsApp em 24–48 h.', clErr:'Não foi possível enviar. Tente de novo em instantes.',
+        clName:'Seu nome', clEmail:'E-mail', clBtn:'Encontre o profissional certo', clNote:'Respondemos em 24–48 h',
+        clSending:'Enviando…', clOk:'Pronto! Recebemos seus dados.', clOkD:'Escrevemos para o seu e-mail em 24–48 h.', clErr:'Não foi possível enviar. Tente de novo em instantes.',
         ftTagline:'Acompanhamento em saúde mental, orientação e bem-estar. 100% online, em espanhol e inglês, onde você estiver.',
         ftMap:'Mapa', ftContact:'Contato',
         pxTitle:'Também contamos com psiquiatria e nutrição online', pxSub:'Profissionais verificados, integrados ao seu processo de bem-estar.',
@@ -735,7 +776,7 @@ const I18N = {
         fMsg:'Mensagem breve', fSubmit:'Enviar inscrição', fThanks:'Obrigado! Recebemos sua inscrição e entraremos em contato em breve.',
         fChoose:'Escolha uma opção', optPsico:'Psicologia', optPareja:'Terapia de casal', optVocac:'Orientação vocacional', optBien:'Bem-estar', optOtro:'Outro',
         modOnline:'Online', modPres:'Presencial', modAmbas:'Ambas',
-        bnSub:'Sem bots, sem algoritmos: resposta humana.',
+        bnSub1:'Sem bots, sem algoritmos:', bnSub2:'resposta humana.',
         abKicker:'sobre nós', abTitle:'Nossa história',
         abQm:'epuyen · significado em mapuche', abTag:'da Patagônia',
         ab1:'Cresci cercada pelo mundo da saúde mental. Meus pais tinham uma clínica e uma fazenda terapêutica, então acompanhar pessoas em seus processos de recuperação fez parte da minha vida desde sempre.',
